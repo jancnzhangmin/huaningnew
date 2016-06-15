@@ -1,6 +1,8 @@
 source 'https://gems.ruby-china.org'
 
-
+gem "font-awesome-rails"
+gem 'paperclip'
+gem 'rails_kindeditor', github: 'Macrow/rails_kindeditor'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 # Use mysql as the database for Active Record

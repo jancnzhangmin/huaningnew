@@ -22,7 +22,7 @@
     <div class="navbar">
       <div class="navbar-inner">
         <!-- We have home navbar without left link-->
-        <div class="center sliding">Awesome App</div>
+        <div class="left sliding"><%= image_tag 'logo.png' ,height: '30px' %></div>
         <div class="right">
           <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
         </div>
@@ -40,8 +40,11 @@
           <div class="swiper-container">
             <div class="swiper-pagination"></div>
             <div class="swiper-wrapper">
-              <div class="swiper-slide"><%= image_tag 'banner01.jpg', width:'100%',height:'100%' %></div>
-              <div class="swiper-slide"><%= image_tag 'banner01.jpg',width: '100%',height: '100%' %></div>
+              <div class="swiper-slide">
+
+                <div class="swiper-slide"><%= image_tag 'banner01.jpg',width: '100%',height: '100%' %></div>
+              </div>
+              <div class="swiper-slide"><%= image_tag 'banner02.jpg',width: '100%',height: '100%' %></div>
 
               <div class="swiper-slide"><span>Slide 10</span></div>
             </div>
@@ -52,7 +55,9 @@
               <!-- Each "cell" has col-[widht in percents] class -->
 
               <div class="col-25">
+                <a href=<%= showcontents_path %>?keyword=express class="item-link" data-no-turbolink = true>
                 <%= image_tag 'express.png', width:'90%' %>
+                </a>
               </div>
               <div class="col-25">
                 <%= image_tag 'news.png', width:'90%' %>

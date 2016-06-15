@@ -1,0 +1,57 @@
+
+
+
+<div id="wrapper">
+  <nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+      <ul class="nav" id="side-menu">
+        <li class="nav-header">
+
+          <div class="dropdown profile-element"> <span>
+
+                             </span>
+            <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+                                <span class="clear"> <span class="block m-t-xs">
+                             </span>  <span class="text-muted text-xs block"><%= session[:name] %> <b class="caret"></b></span> </span>
+            </a>
+            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+
+              <li><a href="profile.html">个人资料</a>
+              </li>
+
+
+              <li class="divider"></li>
+              <li>
+                <a href="profile.html">安全退出</a>
+              </li>
+            </ul>
+          </div>
+          <div class="logo-element">
+            H+
+          </div>
+
+        </li>
+
+
+        <li>
+
+          <a href="#"><i class="fa fa-user"></i><span class="nav-label">发布管理</span><span class="fa arrow"></span></a>
+          <ul class="nav nav-second-level">
+            <li>
+              <%= link_to "新闻速递", contents_path(:keyword => 'express'),'data-no-turbolink' => true %>
+            </li>
+          </ul>
+        </li>
+        <li>
+
+
+
+
+
+
+      </ul>
+
+    </div>
+  </nav>
+
+</div>

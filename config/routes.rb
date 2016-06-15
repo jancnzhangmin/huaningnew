@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+  resources :comments
+  resources :banners
+  resources :clas
+  resources :contents
   resources :sliders
+  resources :showcontents
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -11,6 +11,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160615004029) do
+
+  create_table "banners", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.string   "link",       limit: 255
+    t.integer  "active",     limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "clas", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.string   "keyword",    limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "summary",    limit: 255
+    t.integer  "content_id", limit: 4
+    t.integer  "user_id",    limit: 4
+    t.integer  "isshow",     limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "contents", force: :cascade do |t|
+    t.string   "title",                      limit: 255
+    t.string   "summary",                    limit: 255
+    t.text     "content",                    limit: 65535
+    t.integer  "cla_id",                     limit: 4
+    t.integer  "visit",                      limit: 4
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.string   "keyword",                    limit: 255
+    t.integer  "isshiping",                  limit: 4
+    t.integer  "isnew",                      limit: 4
+    t.string   "contentimedia_file_name",    limit: 255
+    t.string   "contentimedia_content_type", limit: 255
+    t.integer  "contentimedia_file_size",    limit: 4
+    t.datetime "contentimedia_updated_at"
+  end
 
 end

@@ -1,0 +1,54 @@
+
+<div class="ibox-content form-horizontal m-t">
+
+
+  <div class="form-group">
+
+<%= form_for(@content,:html => {:class=>'form-horizontal m-t',:multipart => true}) do |f| %>
+
+
+  <div class="form-group">
+    <label class="col-sm-3 control-label">标题：</label>
+    <div class="col-sm-6">
+    <%= f.text_field :title,class:"form-control" %>
+      </div>
+  </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">简介：</label>
+          <div class="col-sm-6">
+            <%= f.text_area :summary,class:'form-control' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">媒体文件（图片、视频）：</label>
+          <div class="col-sm-6">
+            <%= f.file_field :contentimedia,class:'form-control' %>
+          </div>
+          *小于1G
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-3 control-label">简介：</label>
+          <div class="col-sm-6">
+            <%= f.kindeditor :content, :owner => @content  %>
+          </div>
+        </div>
+
+
+
+
+
+
+    <%= f.hidden_field :visit,value:'0' %>
+        <%= f.hidden_field :isnew,value:'0' %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+
+
+
+<% end %>
+
+      </div>
+    </div>

@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+
 //= require turbolinks
 
 //= require framework7.js
 //= require my-app.js
+//= require jquery.jplayer.min.js

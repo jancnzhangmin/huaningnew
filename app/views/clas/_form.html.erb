@@ -1,0 +1,25 @@
+<%= form_for(@cla) do |f| %>
+  <% if @cla.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cla.errors.count, "error") %> prohibited this cla from being saved:</h2>
+
+      <ul>
+      <% @cla.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :keyword %><br>
+    <%= f.text_field :keyword %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
