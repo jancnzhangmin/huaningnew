@@ -8,8 +8,28 @@ class ContentsController < ApplicationController
   def index
     @keyword = params[:keyword]
     @contents = Content.all
+
     if params[:keyword] == 'express'
       @title = '新闻速递'
+    end
+
+    if params[:keyword] == 'news'
+      @title = '华宁新闻'
+    end
+    if params[:keyword] == 'zoujin'
+      @title = '走进华宁'
+    end
+    if params[:keyword] == 'shipinhui'
+      @title = '视频汇'
+    end
+    if params[:keyword] == 'zhengwu'
+      @title = '阳光政务'
+    end
+    if params[:keyword] == 'fabu'
+      @title = '轻快发布'
+    end
+    if params[:keyword] == 'dianbo'
+      @title = '栏目点播'
     end
 
     if @keyword
@@ -26,8 +46,35 @@ class ContentsController < ApplicationController
   # GET /contents/new
   def new
     @content = Content.new
-    content = Content.create(isnew:'1',keyword:'express')
-    redirect_to edit_content_path(content,:keyword=>'express')
+    if params[:keyword] == 'express'
+      content = Content.create(isnew:'1',keyword:'express')
+      redirect_to edit_content_path(content,:keyword=>'express')
+    end
+
+    if params[:keyword] == 'news'
+      content = Content.create(isnew:'1',keyword:'news')
+      redirect_to edit_content_path(content,:keyword=>'news')
+    end
+    if params[:keyword] == 'zoujin'
+      content = Content.create(isnew:'1',keyword:'zoujin')
+      redirect_to edit_content_path(content,:keyword=>'zoujin')
+    end
+    if params[:keyword] == 'shipinhui'
+      content = Content.create(isnew:'1',keyword:'shipinhui')
+      redirect_to edit_content_path(content,:keyword=>'shipinhui')
+    end
+    if params[:keyword] == 'zhengwu'
+      content = Content.create(isnew:'1',keyword:'zhengwu')
+      redirect_to edit_content_path(content,:keyword=>'zhengwu')
+    end
+    if params[:keyword] == 'fabu'
+      content = Content.create(isnew:'1',keyword:'fabu')
+      redirect_to edit_content_path(content,:keyword=>'fabu')
+    end
+    if params[:keyword] == 'dianbo'
+      content = Content.create(isnew:'1',keyword:'dianbo')
+      redirect_to edit_content_path(content,:keyword=>'dianbo')
+    end
   end
 
   # GET /contents/1/edit
