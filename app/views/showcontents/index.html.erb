@@ -1,42 +1,59 @@
-<div class="navbar">
-  <div class="navbar-inner">
-    <div class="left"><a href="#" data-no-turbolink = "true" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
-    <div class="center sliding"><%= @title %></div>
-    <div class="right">
-      <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
-    </div>
-  </div>
-</div>
+
 <div class="pages">
+
+
+
   <!-- Page, data-page contains page name-->
   <div data-page="contentindex" class="page">
-    <!-- Scrollable page content-->
-    <div class="page-content">
+
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left"><a href="#" data-no-turbolink = "true" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
+        <div class="center sliding"><%= @title %></div>
+        <div class="right">
+          <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="page-content pull-to-refresh-content">
+      <!-- 默认的下拉刷新层 -->
+      <div class="pull-to-refresh-layer">
+        <div class="preloader"></div>
+        <div class="pull-to-refresh-arrow"></div>
+      </div>
+
+
+      <!-- Scrollable page content-->
+
       <div class="content-block">
         <div class="content-block-inner">
 
           <div class="list-block media-list">
             <ul>
 
-<% @contents.each do |f| %>
-              <li>
-                <a href=<%= showcontent_path(f) %> class="item-link item-content">
-                  <div class="item-media">
-                    <% if f.contentimedia_content_type !=nil && (f.contentimedia_content_type.include?"image") %>
-                    <%=image_tag f.contentimedia.url,width: '70px' %>
-                        <% else %>
-                        <%=image_tag 'playerlogo.png',width: '70px' %>
-                    <% end %>
-                  </div>
-                  <div class="item-inner">
-                    <div class="item-title-row">
-                      <div class="item-title"><%= f.title %></div>
+              <% @contents.each do |f| %>
+                  <li>
+                    <a href=<%= showcontent_path(f) %> class="item-link item-content">
+                    <div class="item-media">
+                      <% if f.contentimedia_content_type !=nil && (f.contentimedia_content_type.include?"image") %>
+                          <%=image_tag f.contentimedia.url,width: '70px' %>
+                      <% else %>
+                          <%=image_tag 'playerlogo.png',width: '70px' %>
+                      <% end %>
                     </div>
-                    <div class="item-text"><%= f.summary %></div>
-                  </div>
-                </a>
-              </li>
-<% end %>
+                    <div class="item-inner">
+                      <div class="item-title-row">
+                        <div class="item-title"><%= f.title %></div>
+                      </div>
+                      <div class="item-text"><%= f.summary %></div>
+                    </div>
+                    </a>
+                  </li>
+              <% end %>
 
             </ul>
           </div>
