@@ -2,6 +2,7 @@
 var myApp = new Framework7(
     {
         scrollTopOnNavbarClick:true
+
     }
 );
 
@@ -35,7 +36,20 @@ myApp.onPageInit('index',function(page){
 
 
 
+
+
+
 myApp.onPageInit('contentindex',function(page){
+
+
+
+
+    var keyword = $('#kwd').val();
+
+
+
+
+
 
     mainView.router.refreshPage();
     var ptrContent = $$('.pull-to-refresh-content');
@@ -56,15 +70,16 @@ myApp.onPageInit('contentindex',function(page){
         // 模拟2s的加载过程
         setTimeout(function () {
             // 随机图片
-
+            $('#idindex').val(999999999);
 
             $.ajax({
                 type:"get",
-                url:"/showcontents/jsonindex?keyword=express",
+                url:"/showcontents/jsonindex?keyword="+keyword+"&idindex="+$('#idindex').val(),
                 dataType:"json",
                 success:function(data){
 
-                    //$('ul').empty();
+
+                    $('ul').empty();
 
 
                     $.each(data, function(i, item) {
@@ -74,12 +89,15 @@ myApp.onPageInit('contentindex',function(page){
                             '<a href=/showcontents/' +item.id +'  class="item-link item-content">'+
                             '<div class="item-media">';
 
-                        if(item.contentimedia_content_type!=null && item.contentimedia_content_type.indexOf("image") ) {
-                            itemHTML +='<img src = /contentimedia/' + item.contentimedia_file_name + ' width= "70px">' ;
+                        if(item.contentimedia_content_type!=null  ) {
+                            if(item.contentimedia_content_type.indexOf("video")) {
+                                itemHTML += '<img src = /contentimedia/' + item.id + '/' + item.contentimedia_file_name + ' width= "70px">';
+                            }else
+                            {
+                                itemHTML += '<img src= "playerlogo.png" width= "70px" >';
+                            }
                         }
-                        else {
-                            itemHTML += '<img src= "playerlogo.png" width= "70px" >';
-                        }
+
                         itemHTML+='</div>'+
                             '<div class="item-inner">'+
                             '<div class="item-title-row">'+
@@ -93,8 +111,8 @@ myApp.onPageInit('contentindex',function(page){
 
 
                         // 前插新列表元素
-                        ptrContent.find('ul').prepend(itemHTML);
-
+                        ptrContent.find('ul').append(itemHTML);
+$('#idindex').val(item.id);
 
                         //alert(item.title);
                     });
@@ -123,10 +141,111 @@ myApp.onPageInit('contentindex',function(page){
 
 
 
+    var loading = false;
+
+
+
+    // 注册'infinite'事件处理函数
+    $$('.infinite-scroll').on('infinite', function () {
+
+
+        if (loading) return;
+
+        // 设置flag
+        loading = true;
+        // 模拟1s的加载过程
+        setTimeout(function () {
+            // 重置加载flag
+
+            loading = false;
+
+            $.ajax({
+                type:"get",
+                url:"/showcontents/jsonindex?keyword="+keyword+"&idindex="+$('#idindex').val(),
+                dataType:"json",
+                success:function(data){
+
+                    //$('ul').empty();
+
+
+                    $.each(data, function(i, item) {
+
+
+                        var itemHTML = '<li>'+
+                            '<a href=/showcontents/' +item.id +'  class="item-link item-content">'+
+                            '<div class="item-media">';
+
+                        if(item.contentimedia_content_type!=null  ) {
+                            if(item.contentimedia_content_type.indexOf("video")) {
+                                itemHTML += '<img src = /contentimedia/' + item.id + '/' + item.contentimedia_file_name + ' width= "70px">';
+                            }
+                            else
+                            {
+                                itemHTML += '<img src= "playerlogo.png" width= "70px" >';
+                            }
+                        }
+
+                        itemHTML+='</div>'+
+                        '<div class="item-inner">'+
+                        '<div class="item-title-row">'+
+                        '<div class="item-title">'+item.title+'</div>'+
+                        '</div>'+
+                        '<div class="item-text">'+item.summary+'</div>'+
+                        '</div>'+
+                        '</a>'+
+                        '</li>';
+
+
+
+                        // 前插新列表元素
+                        ptrContent.find('ul').append(itemHTML);
+                        $('#idindex').val(item.id);
+
+                        //alert(item.title);
+                    });
+                },
+                error:function(){
+                    alert("error");
+                }
+            });
+
+
+
+
+
+        }, 1000);
+    });
+
+
+
+
+
+
+
+
+
+
+
 });
 
 // Generate dynamic page
 myApp.onPageInit('showcontent',function(page){
+
+
+
+
+
+// Add view
+
+
+
+
+
+
+
+
+
+    mainView.router.refreshPage();
 
     $(document).ready(function(){
     $("#jquery_jplayer_1").jPlayer({

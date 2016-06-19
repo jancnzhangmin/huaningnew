@@ -1,3 +1,15 @@
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="left"><a href="#" data-no-turbolink = "true" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
+    <div class="center sliding"><%= @title %></div>
+    <div class="right">
+      <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+    </div>
+  </div>
+</div>
+
+
+
 
 <div class="pages">
 
@@ -7,19 +19,22 @@
   <div data-page="contentindex" class="page">
 
 
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="left"><a href="#" data-no-turbolink = "true" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
-        <div class="center sliding"><%= @title %></div>
-        <div class="right">
-          <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
-        </div>
-      </div>
-    </div>
+
+    <style>
+        .infinite-scroll-preloader {
+            margin-top:-20px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+    </style>
 
 
 
-    <div class="page-content pull-to-refresh-content">
+<input type="hidden" value=<%=@keyword %>  id='kwd'>
+
+
+    <div class="page-content pull-to-refresh-content infinite-scroll">
       <!-- 默认的下拉刷新层 -->
       <div class="pull-to-refresh-layer">
         <div class="preloader"></div>
@@ -28,9 +43,11 @@
 
 
       <!-- Scrollable page content-->
+      <% content = @contents.last %>
+<input type="hidden" value=<%= content.id %> id="idindex">
 
-      <div class="content-block">
-        <div class="content-block-inner">
+
+
 
           <div class="list-block media-list">
             <ul>
@@ -39,11 +56,14 @@
                   <li>
                     <a href=<%= showcontent_path(f) %> class="item-link item-content">
                     <div class="item-media">
-                      <% if f.contentimedia_content_type !=nil && (f.contentimedia_content_type.include?"image") %>
+                      <% if f.contentimedia_content_type !=nil %>
+                          <% if f.contentimedia_content_type.include?"image" %>
                           <%=image_tag f.contentimedia.url,width: '70px' %>
+
                       <% else %>
                           <%=image_tag 'playerlogo.png',width: '70px' %>
                       <% end %>
+                          <% end %>
                     </div>
                     <div class="item-inner">
                       <div class="item-title-row">
@@ -53,13 +73,21 @@
                     </div>
                     </a>
                   </li>
-              <% end %>
-
+                  <% end %>
             </ul>
           </div>
 
-        </div>
+
+
+
+
+
+
+      <div class="infinite-scroll-preloader">
+        <div class="preloader"></div>
       </div>
+
+
     </div>
   </div>
 </div>

@@ -27,7 +27,7 @@ class ShowcontentsController < ApplicationController
       end
 
       if @keyword
-        @contents = Content.where("keyword ='"+ @keyword +"'  AND isnew = '0'").order('updated_at desc')
+        @contents = Content.where("keyword ='"+ @keyword +"'  AND isnew = '0'").order('updated_at desc').limit(10)
       end
 
 
@@ -40,6 +40,7 @@ class ShowcontentsController < ApplicationController
 
   def jsonindex
     @keyword = params[:keyword]
+    @idindex = params[:idindex]
     @contents = Content.all
     if params[:keyword] == 'express'
       @title = '新闻速递'
@@ -63,8 +64,12 @@ class ShowcontentsController < ApplicationController
       @title = '栏目点播'
     end
 
-    if @keyword
-      @contents = Content.where("keyword ='"+ @keyword +"'  AND isnew = '0'").order('updated_at desc')
+    if @keyword && (@idindex == nil || @idindex.to_i <=0 )
+      @contents = Content.where("keyword ='"+ @keyword +"'  AND isnew = '0'").order('updated_at desc').limit(10)
+    end
+
+    if @keyword && @idindex.to_i > 0
+      @contents = Content.where("keyword ='"+ @keyword +"' and id < '" + @idindex + "'  AND isnew = '0'" ).order('updated_at desc').limit(10)
     end
 
 
