@@ -1,3 +1,4 @@
+
 <!-- Status bar overlay for fullscreen mode-->
 <div class="statusbar-overlay"></div>
 <!-- Panels overlay-->
@@ -84,7 +85,20 @@
         <!-- We have home navbar without left link-->
         <div class="left sliding"><%= image_tag 'logo.png' ,height: '30px' %></div>
         <div class="right">
-          <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+          <!-- Right link contains only icon - additional "icon-only" class-->
+
+
+
+
+
+          <a href="#" class="link icon-only open-panel">
+            <i class="fa fa-search"></i> &nbsp; &nbsp;
+            <i class="icon icon-bars"></i>
+          </a>
+
+
+
+
         </div>
       </div>
     </div>
@@ -114,11 +128,7 @@
             <div class="row no-gutter">
               <!-- Each "cell" has col-[widht in percents] class -->
 
-              <div class="col-25">
-                <a href=<%= showcontents_path %>?keyword=express class="item-link" data-no-turbolink = true>
-                <%= image_tag 'express.png', width:'90%' %>
-                </a>
-              </div>
+
 
 
 
@@ -126,6 +136,11 @@
                 <a href=<%= showcontents_path %>?keyword=news class="item-link" data-no-turbolink = true>
                 <%= image_tag 'news.png', width:'90%' %>
                     </a>
+              </div>
+              <div class="col-25">
+                <a href=<%= showcontents_path %>?keyword=express class="item-link" data-no-turbolink = true>
+                  <%= image_tag 'express.png', width:'90%' %>
+                </a>
               </div>
               <div class="col-25">
                 <a href=<%= showcontents_path %>?keyword=zoujin class="item-link" data-no-turbolink = true>
