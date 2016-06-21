@@ -27,13 +27,8 @@
       <% @contents.each do |content| %>
           <tr>
             <td><%= content.title %></td>
-
-
             <td><%= content.summary %></td>
-
             <td><%= content.visit %></td>
-
-
             <td><%= link_to '编辑', edit_content_path(content,:keyword=>@keyword),'data-no-turbolink'=>true %></td>
             <td><%= link_to '删除', content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
@@ -41,8 +36,6 @@
   <% end %>
   </tbody>
 </table>
-
-
           <%= link_to "新增", new_content_path(keyword:@keyword),class: "btn btn-w-m btn-success mylink pull-right",'data-no-turbolink'=>true %>
 
       <br>

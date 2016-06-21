@@ -7,14 +7,7 @@
     </div>
   </div>
 </div>
-
-
-
-
 <div class="pages">
-
-
-
   <!-- Page, data-page contains page name-->
   <div data-page="contentindex" class="page">
 
@@ -59,7 +52,6 @@
                       <% if f.contentimedia_content_type !=nil %>
                           <% if f.contentimedia_content_type.include?"image" %>
                           <%=image_tag f.contentimedia.url,width: '70px' %>
-
                       <% else %>
                           <%=image_tag 'playerlogo.png',width: '70px' %>
                       <% end %>
@@ -71,20 +63,19 @@
                       </div>
                       <div class="item-text"><%= f.summary %></div>
                     </div>
+
                     </a>
+
                   </li>
                   <% end %>
+
             </ul>
           </div>
-
-
-
-
-
-
-
       <div class="infinite-scroll-preloader">
-        <div class="preloader"></div>
+        <div class="preloader">
+
+        </div>
+
       </div>
 
 
