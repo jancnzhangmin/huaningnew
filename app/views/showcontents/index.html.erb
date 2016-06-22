@@ -38,13 +38,8 @@
       <!-- Scrollable page content-->
       <% content = @contents.last %>
 <input type="hidden" value=<%= content.id %> id="idindex">
-
-
-
-
           <div class="list-block media-list">
             <ul>
-
               <% @contents.each do |f| %>
                   <li>
                     <a href=<%= showcontent_path(f) %> class="item-link item-content">
@@ -63,11 +58,12 @@
                       </div>
                       <div class="item-text"><%= f.summary %></div>
                     </div>
-
                     </a>
-
                   </li>
                   <% end %>
+
+
+
 
             </ul>
           </div>
@@ -77,8 +73,6 @@
         </div>
 
       </div>
-
-
     </div>
   </div>
 </div>

@@ -29,6 +29,27 @@ myApp.onPageInit('index',function(page){
         autoplay: 6000,
         speed: 600
     });
+
+    $$('.open-info').on('click', function () {
+        myApp.pickerModal('.picker-info')
+    });
+
+
+
+
+
+    $$('.accordion-item').on('opened', function () {
+        myApp.alert('Accordion item opened');
+    });
+
+    $$('.accordion-item').on('closed', function (e) {
+        myApp.alert('Accordion item closed');
+    });
+
+
+
+
+
 });
 
 
@@ -282,6 +303,12 @@ var mySwiper = myApp.swiper('.swiper-container', {
     loop:true,
     autoplay: 6000,
     speed: 600
+});
+
+
+
+$$('.open-info').on('click', function () {
+    myApp.pickerModal('.picker-info')
 });
 
 
