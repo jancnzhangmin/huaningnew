@@ -19,6 +19,27 @@ var mainView = myApp.addView('.view-main', {
 
 
 
+$(document).ready(function(){
+
+    var t=0;
+
+
+
+    $('#searchtext').focus(function(){
+        $('#searchdiv').removeClass("myhide");
+        $('#searchdiv').addClass("myshow");
+    });
+
+
+    $('#searchtext').blur(function(){
+        $('#searchdiv').removeClass("myshow");
+        $('#searchdiv').addClass("myhide");
+    });
+
+});
+
+
+
 myApp.onPageInit('index',function(page){
 
     mainView.router.refreshPage();
@@ -45,6 +66,10 @@ myApp.onPageInit('index',function(page){
     $$('.accordion-item').on('closed', function (e) {
         myApp.alert('Accordion item closed');
     });
+
+
+
+
 
 
 
