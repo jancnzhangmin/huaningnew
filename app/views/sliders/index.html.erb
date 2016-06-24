@@ -19,15 +19,10 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
 <div class="login-screen">
   <div class="view">
     <div class="page">
+
       <div class="page-content login-screen-content">
         <div class="login-screen-title">新用户</div>
         <form>
@@ -77,15 +72,6 @@
     <p>Right panel content goes here</p>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
 <!-- Views-->
 <div class="views">
   <!-- Your main view, should have "view-main" class-->
@@ -98,22 +84,9 @@
         <div class="right">
           <!-- Right link contains only icon - additional "icon-only" class-->
 
-
-
-
-
           <a href="#" class="link icon-only open-panel">
             <i class="icon icon-bars"></i>
           </a>
-
-
-
-
-
-
-
-
-
 
 
 
@@ -132,7 +105,14 @@
 
 
 
-
+        <!-- Search bar -->
+        <form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init">
+          <div class="searchbar-input">
+            <input type="search" placeholder="搜索"><a href="#" class="searchbar-clear"></a>
+          </div><a href="#" class="searchbar-cancel">取消</a>
+        </form>
+        <!-- Search bar overlay -->
+        <div class="searchbar-overlay"></div>
 
 
 
@@ -141,12 +121,27 @@
 
 
 
-          <div class="navbar">
-
-              <div class="center messagebar">
-                &nbsp;&nbsp; <textarea id="searchtext" placeholder="搜索"></textarea>&nbsp;<div id="searchdiv" class="myhide"><a id="search"><i class=" fa fa-search"></i>&nbsp; </a><a id="searchcanel">取消 &nbsp;</a>&nbsp;&nbsp;</div>
-              </div>
+          <div class="content-block searchbar-not-found">
+            <div class="content-block-inner">内容未找到</div>
           </div>
+          <div class="list-block list-block-search searchbar-found">
+            <ul>
+
+            </ul>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -159,6 +154,8 @@
                       display: none;
                   }
           </style>
+
+
 
 
 

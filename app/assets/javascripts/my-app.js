@@ -15,7 +15,38 @@ var mainView = myApp.addView('.view-main', {
     dynamicNavbar: true
 });
 
-// Callbacks to run specific code for specific pages, for example for About page:
+var mySearchbar = $$('.searchbar')[0].f7Searchbar;
+
+
+
+
+mySearchbar.enableSearch(function(){
+    alert('c');
+    var itemHTML = '<li class="item-content"><div class="item-inner"><div class="item-title">ccc'+'</div></div></li>';
+    var ptrContent = $$('.list-block-search');
+    ptrContent.find('ul').append(itemHTML);
+
+});
+
+
+
+mySearchbar.disable();
+
+
+
+
+
+$$('.accordion-item').on('opened', function () {
+    myApp.alert('Accordion item opened');
+});
+
+$$('.accordion-item').on('closed', function (e) {
+    myApp.alert('Accordion item closed');
+});
+
+
+
+
 
 
 
@@ -35,6 +66,14 @@ $(document).ready(function(){
         $('#searchdiv').removeClass("myshow");
         $('#searchdiv').addClass("myhide");
     });
+
+
+
+
+
+
+
+
 
 });
 
@@ -57,6 +96,26 @@ myApp.onPageInit('index',function(page){
 
 
 
+    var mySearchbar = $$('.searchbar')[0].f7Searchbar;
+    mySearchbar.disable();
+
+
+
+
+
+
+    var mySearchbar = myApp.searchbar('.searchbar', {
+        searchList: '.list-block-search',
+        searchIn: '.item-title'
+    });
+
+    mySearchbar.enable('.searchbar',function(){
+
+        var itemHTML = '<li class="item-content"><div class="item-inner"><div class="item-title">ccc'+'</div></div></li>';
+        var ptrContent = $$('.list-block-search');
+        ptrContent.find('ul').append(itemHTML);
+
+    });
 
 
     $$('.accordion-item').on('opened', function () {
