@@ -15,16 +15,24 @@ var mainView = myApp.addView('.view-main', {
     dynamicNavbar: true
 });
 
-var mySearchbar = $$('.searchbar')[0].f7Searchbar;
+var mySearchbar = myApp.searchbar('.searchbar', {
+    searchList: '.list-block-search',
+    searchIn: '.item-title'
+});
+$('.page[data-page="index"] input[type="search"]').keydown(function(){
+    var itemHTML = '<li class="item-content"><div class="item-inner"><div class="item-title">ccc'+'</div></div></li>';
+    var ptrContent = $$('.list-block-search');
+    ptrContent.find('ul').append(itemHTML);
+});
 
+$('.page[data-page="index"] input[type="search"]').blur(function(){
 
+    var ptrContent = $$('.list-block-search');
+    var myul =ptrContent.find('ul');
+    $('ul').empty();
+});
 
-
-
-
-
-
-mySearchbar.disable();
+//mySearchbar.disable();
 
 
 
@@ -92,24 +100,34 @@ myApp.onPageInit('index',function(page){
 
     var mySearchbar = $$('.searchbar')[0].f7Searchbar;
     mySearchbar.disable();
-
-
-
-
-
-
-    var mySearchbar = myApp.searchbar('.searchbar', {
-        searchList: '.list-block-search',
-        searchIn: '.item-title'
-    });
-
-    mySearchbar.enable('.searchbar',function(){
-
+    mySearchbar.enableSearch(function(e){
         var itemHTML = '<li class="item-content"><div class="item-inner"><div class="item-title">ccc'+'</div></div></li>';
         var ptrContent = $$('.list-block-search');
         ptrContent.find('ul').append(itemHTML);
-
     });
+alert('c');
+
+
+
+
+
+    $$('.list-block').on('onEnable',function(){
+        alert('c');
+    });
+
+    myApp.enableSearch(function(){
+       alert('c');
+    });
+
+
+
+
+
+
+
+
+
+
 
 
     $$('.accordion-item').on('opened', function () {
