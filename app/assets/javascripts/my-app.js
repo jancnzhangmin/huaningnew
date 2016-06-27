@@ -20,13 +20,7 @@ var mySearchbar = $$('.searchbar')[0].f7Searchbar;
 
 
 
-mySearchbar.enableSearch(function(){
-    alert('c');
-    var itemHTML = '<li class="item-content"><div class="item-inner"><div class="item-title">ccc'+'</div></div></li>';
-    var ptrContent = $$('.list-block-search');
-    ptrContent.find('ul').append(itemHTML);
 
-});
 
 
 
