@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :clas
   resources :contents
   resources :sliders
+  resources :showusers
 
 
 
