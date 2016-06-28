@@ -77,6 +77,19 @@ render :json => @contents
 
   end
 
+
+  def search
+    if params[:searchkey]
+    @contents = Content.where("isnew ='0' AND title like '%" +params[:searchkey] +"%'").limit(10)
+    end
+
+    if @contents
+      render :json => @contents
+    end
+
+  end
+
+
   def show
     @content = Content.find(params[:id])
   end

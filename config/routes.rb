@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :showcontents do
     collection do
       get 'jsonindex'
+      get 'search'
     end
   end
 

@@ -1,4 +1,12 @@
-
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="left"><a href="#" data-no-turbolink = "true" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
+    <div class="center sliding"></div>
+    <div class="right">
+      <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+    </div>
+  </div>
+</div>
 
 <div class="pages">
   <!-- Page, data-page contains page name-->
@@ -9,38 +17,54 @@
 
 
 
-        <%= form_for(@showuser) do |f| %>
-            <% if @showuser.errors.any? %>
-                <div id="error_explanation">
-                  <h2><%= pluralize(@showuser.errors.count, "error") %> prohibited this user from being saved:</h2>
+        <%= form_for(@showuser,:html => {:class=>'list-block'}) do |f| %>
 
-                  <ul>
-                    <% @showuser.errors.full_messages.each do |message| %>
-                        <li><%= message %></li>
-                    <% end %>
-                  </ul>
+            <ul>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title label">用户名</div>
+                    <div class="item-input">
+                      <%= f.text_field :name,placeholder:"Your name" %>
+                    </div>
+                  </div>
                 </div>
-            <% end %>
+              </li>
 
-            <div class="field">
-              <%= f.label :用户名 %><br>
-              <%= f.text_field :name %>
-            </div>
-            <div class="field">
-              <%= f.label :密码%><br>
-              <%= f.text_field :password_digest %>
-            </div>
-            <div class="field">
-              <%= f.label :电话 %><br>
-              <%= f.text_field :tel %>
-            </div>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title label">密码</div>
+                    <div class="item-input">
+                      <%= f.password_field :password,placeholder:"确认密码" %>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title label">确认密码</div>
+                    <div class="item-input">
+                      <%= f.password_field :password_confirmation,placeholder:"密码" %>
+                    </div>
+                  </div>
+                </div>
+              </li>
 
 
-            <div class="actions">
-              <%= f.submit %>
-            </div>
+
+              <div class="content-block">
+                <%= f.submit '确定',class:'button back' %>
+              </div>
+
+              </ul>
+
+
+
+
         <% end %>
-
       </div>
 
   </div>

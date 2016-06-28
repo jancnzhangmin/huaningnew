@@ -19,18 +19,8 @@ var mySearchbar = myApp.searchbar('.searchbar', {
     searchList: '.list-block-search',
     searchIn: '.item-title'
 });
-$('.page[data-page="index"] input[type="search"]').keydown(function(){
-    var itemHTML = '<li class="item-content"><div class="item-inner"><div class="item-title">ccc'+'</div></div></li>';
-    var ptrContent = $$('.list-block-search');
-    ptrContent.find('ul').append(itemHTML);
-});
+searchlist();
 
-$('.page[data-page="index"] input[type="search"]').blur(function(){
-
-    var ptrContent = $$('.list-block-search');
-    var myul =ptrContent.find('ul');
-    $('ul').empty();
-});
 
 //mySearchbar.disable();
 
@@ -81,6 +71,88 @@ $(document).ready(function(){
 
 
 
+function searchlist(){
+
+
+
+    //var t = '<li class="item-content">'+
+    //    '<div ><div class="item-title">'+
+    //    '<a href=/showcontents/' + 15 +' class="item-link item-content" data-no-turbolink = "true">'+
+    //    'ccc' +
+    //    '</a>'+
+    //    '</div></div>'+
+    //    '</li>';
+    //var ptrContent = $$('.list-block-search');
+    //ptrContent.find('ul').append(t);
+
+
+
+    var loading = false;
+    $('.page[data-page="index"] input[type="search"]').keydown(function(){
+
+
+        //var itemHTML = '<li class="item-content"><div class="item-inner"><div class="item-title">ccc'+'</div></div></li>';
+        if (loading) return;
+
+        // 设置flag
+        loading = true;
+        setTimeout(function () {
+            loading=false;
+        $.ajax({
+            type:"get",
+            url:"/showcontents/search?searchkey="+$('.page[data-page="index"] input[type="search"]').val(),
+            dataType:"json",
+            success:function(data){
+
+
+                $('ul').empty();
+
+
+                $.each(data, function(i, item) {
+
+
+                    var itemHTML = '<li class="item-content">'+
+                        '<div ><div class="item-title">'+
+                        '<a href=/showcontents/' + item.id +' class="item-link item-content" data-no-turbolink = "true">'+
+                        item.title +
+                        '</a>'+
+                        '</div></div>'+
+                        '</li>';
+
+
+
+                    // 前插新列表元素
+                    var ptrContent = $$('.list-block-search');
+                    ptrContent.find('ul').append(itemHTML);
+
+                    //alert(item.title);
+                });
+            },
+            error:function(){
+
+            }
+        });
+            //myApp.pullToRefreshDone();
+            //mainView.router.refreshPage();
+        }, 2000);
+
+
+
+
+    });
+
+    $('.page[data-page="index"] input[type="search"]').blur(function(){
+
+
+        var ptrContent = $$('.list-block-search');
+        var myul =ptrContent.find('ul');
+        $('ul').empty();
+    });
+   // $('ul').empty();
+}
+
+
+
 myApp.onPageInit('index',function(page){
 
     mainView.router.refreshPage();
@@ -98,26 +170,18 @@ myApp.onPageInit('index',function(page){
 
 
 
-    var mySearchbar = $$('.searchbar')[0].f7Searchbar;
-    mySearchbar.disable();
-    mySearchbar.enableSearch(function(e){
-        var itemHTML = '<li class="item-content"><div class="item-inner"><div class="item-title">ccc'+'</div></div></li>';
-        var ptrContent = $$('.list-block-search');
-        ptrContent.find('ul').append(itemHTML);
-    });
-alert('c');
+    //var mySearchbar = $$('.searchbar')[0].f7Searchbar;
+    //mySearchbar.disable();
+    //mySearchbar.clear();
 
 
 
 
 
-    $$('.list-block').on('onEnable',function(){
-        alert('c');
-    });
 
-    myApp.enableSearch(function(){
-       alert('c');
-    });
+
+
+searchlist();
 
 
 
@@ -171,7 +235,6 @@ myApp.onPageInit('contentindex',function(page){
     mainView.router.refreshPage();
     var ptrContent = $$('.pull-to-refresh-content');
     //myApp.destroyPullToRefresh(ptrContent);
-
 
 
 
@@ -363,6 +426,7 @@ myApp.onPageInit('showcontent',function(page){
 
 
     mainView.router.refreshPage();
+
 
     $(document).ready(function(){
     $("#jquery_jplayer_1").jPlayer({
