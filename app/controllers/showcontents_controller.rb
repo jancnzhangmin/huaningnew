@@ -92,6 +92,7 @@ render :json => @contents
 
   def show
     @content = Content.find(params[:id])
+    @commentcount = @content.comments.count
   end
 
 end

@@ -23,9 +23,20 @@
               <li>
                 <div class="item-content">
                   <div class="item-inner">
+                    <div class="item-title label">姓名</div>
+                    <div class="item-input">
+                      <%= f.text_field :name,placeholder:"姓名" %>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
                     <div class="item-title label">用户名</div>
                     <div class="item-input">
-                      <%= f.text_field :name,placeholder:"Your name" %>
+                      <%= f.text_field :login,placeholder:"用户名" %>
                     </div>
                   </div>
                 </div>

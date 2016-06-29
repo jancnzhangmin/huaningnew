@@ -30,6 +30,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         session[:username] = @user.name
+        session[:userid] =  @user.id
         format.html { redirect_to '/', notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -71,6 +72,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :password, :password_confirmation, :tel, :vcode)
+      params.require(:user).permit(:name, :login, :password, :password_confirmation, :tel, :vcode)
     end
 end

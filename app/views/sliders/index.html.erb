@@ -4,11 +4,12 @@
 <!-- Panels overlay-->
 <div class="panel-overlay"></div>
 <!-- Left panel with reveal effect-->
-<div class="panel panel-left panel-reveal">
+<div class="panel panel-left panel-reveal" style="background-color: white;">
   <div class="content-block">
     <div class="row">
       <div class="col-auto">
         <br>
+        <a href=<%= logins_path %> class="button close-panel item-link" data-no-turbolink = true>登录</a>
         <br>
 
         <a href=<%= new_showuser_path %> class="button close-panel item-link" data-no-turbolink = true>新用户注册</a>
@@ -43,11 +44,14 @@
         <!-- We have home navbar without left link-->
         <div class="left sliding"><%= image_tag 'logo.png' ,height: '30px' %></div>
         <div class="right">
-          <!-- Right link contains only icon - additional "icon-only" class-->
 
-          <a href="#" class="link icon-only open-panel">
-            <i class="icon icon-bars"></i>
-          </a>
+          <!-- Right link contains only icon - additional "icon-only" class-->
+          <a href="#" data-picker=".picker-1" class="link fa fa-search open-picker"></a>
+          <a href="#" data-picker=".picker-1" class="link fa fa-user open-picker"></a>
+
+          <!--<a href="#" class="link icon-only open-panel">-->
+            <!--<i class="icon icon-bars"></i>-->
+          <!--</a>-->
 
 
 
@@ -124,7 +128,7 @@
 
           <div class="swiper-container">
             <div class="swiper-pagination"></div>
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper" >
               <div class="swiper-slide">
 
                 <div class="swiper-slide"><%= image_tag 'banner01.jpg',width: '100%',height: '100%' %></div>
@@ -134,6 +138,7 @@
               <div class="swiper-slide"><span>Slide 10</span></div>
             </div>
           </div>
+
 
           <div class="content-block" >
             <div class="row no-gutter">

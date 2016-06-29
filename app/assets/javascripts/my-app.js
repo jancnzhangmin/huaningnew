@@ -473,6 +473,44 @@ $$('.open-info').on('click', function () {
 
 
 
+myApp.onPageInit('login',function(page){
+
+    $('#submit').click(function(){
+
+        setTimeout(function () {
+            $.ajax({
+                type: "get",
+                url: "/logins/getuser?login=" + $('#login').val() + "&password=" + $('#password').val(),
+                dataType: "json",
+                success: function (data) {
+                    var flag=true;
+                    $.each(data, function(i, item) {
+
+                      if(item) {
+                          flag =false;
+                          mainView.router.back(mainView);
+                      }
+                    });
+                    if (flag){
+                        myApp.alert('用户名或密码错误！','');
+                    }
+
+
+
+
+
+
+
+
+                },
+                error:function(){
+
+                }
+            });
+        },2000);
+    });
+
+});
 
 
 

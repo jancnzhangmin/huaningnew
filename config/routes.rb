@@ -1,11 +1,20 @@
 Rails.application.routes.draw do
-  resources :users
-  resources :comments
+  resources :users do
+    resources :comments
+  end
+
   resources :banners
   resources :clas
   resources :contents
   resources :sliders
   resources :showusers
+  resources :logins do
+    collection do
+      get 'getuser'
+    end
+
+  end
+
 
 
 

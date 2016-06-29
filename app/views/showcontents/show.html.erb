@@ -98,5 +98,62 @@
 
       </div>
     </div>
+
+
+    <div class="toolbar">
+      <div class="toolbar-inner">
+
+        <a href="#" data-picker=".picker-1" class="link fa fa-pencil open-picker">&nbsp;评一下</a>
+        <a href="#" class="fa fa-comment">&nbsp;<%= @commentcount %></a>
+        <a href="#" data-picker=".picker-2" class="link fa fa-share open-picker"></a>
+      </div>
+    </div>
+
+
+    <div class="picker-modal picker-1">
+      <!-- Picker Modal Toolbar, optional -->
+
+      <!-- Picker Modal Inner -->
+      <div class="picker-modal-inner">
+        <!-- Picker content -->
+        <div class="content-block">
+
+          <% if session[:username] %>
+<%= session[:username] %>
+          <% end %>
+
+          <p>Integer mollis nulla id nibh elementum finibus...</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="picker-modal picker-2">
+      <!-- Picker Modal Toolbar, optional -->
+
+      <!-- Picker Modal Inner -->
+      <div class="picker-modal-inner">
+        <!-- Picker content -->
+        <div class="content-block">
+
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style_24x24">
+            <a class="jiathis_button_qzone"></a>
+            <a class="jiathis_button_tsina"></a>
+            <a class="jiathis_button_tqq"></a>
+            <a class="jiathis_button_weixin"></a>
+            <a class="jiathis_button_renren"></a>
+            <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+            <a class="jiathis_counter_style"></a>
+          </div>
+          <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+
+
+        </div>
+      </div>
+    </div>
+
+
   </div>
 </div>
