@@ -7,4 +7,8 @@ class SlidersController < ApplicationController
     @contents = Content.where(isnew:'0')
   end
 
+
+
+
+
 end
