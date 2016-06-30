@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   resources :banners
   resources :clas
   resources :contents
-  resources :sliders
+  resources :sliders do
+    collection do
+      get 'search'
+      end
+  end
   resources :showusers
   resources :logins do
     collection do

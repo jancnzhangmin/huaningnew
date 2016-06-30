@@ -15,13 +15,13 @@ var mainView = myApp.addView('.view-main', {
     dynamicNavbar: true
 });
 
-var mySearchbar = myApp.searchbar('.searchbar', {
+
+//searchlist();
+
+var mySearchbar = app.searchbar('.searchbar', {
     searchList: '.list-block-search',
     searchIn: '.item-title'
 });
-searchlist();
-
-
 //mySearchbar.disable();
 
 
@@ -181,7 +181,7 @@ myApp.onPageInit('index',function(page){
 
 
 
-searchlist();
+//searchlist();
 
 
 
@@ -513,4 +513,8 @@ myApp.onPageInit('login',function(page){
 });
 
 
+myApp.onPageInit('search',function(page){
 
+
+
+});

@@ -1,0 +1,47 @@
+<div class="navbar" xmlns="http://www.w3.org/1999/html">
+  <div class="navbar-inner">
+    <div class="left"><a href="#" data-no-turbolink = "true" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
+    <div class="center sliding">搜索</div>
+    <div class="right">
+      <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+    </div>
+  </div>
+</div>
+
+
+<div class="pages">
+  <!-- Default view-page layout -->
+
+    <div data-page="search" class="page">
+
+      <!-- page-content has additional login-screen content -->
+      <form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init">
+        <div class="searchbar-input">
+          <input type="search" placeholder="搜索"><a href="#" class="searchbar-clear"></a>
+        </div><a href="#" class="searchbar-cancel">取消</a>
+      </form>
+      <!-- Search bar overlay -->
+      <div class="searchbar-overlay"></div>
+
+      <div class="page-content">
+
+        <div class="list-block list-block-search searchbar-found">
+
+          <ul>
+            <% @contents.each do |f| %>
+                <li class="item-content">
+                  <div class="item-inner">
+                    <a href=<%= showcontent_path(f) %> class="item-link item-content">
+                    <div class="item-title"><%= f.title %></div>
+                    </a>
+                  </div>
+                </li>
+            <% end %>
+          </ul>
+        </div>
+
+      </div>
+
+
+  </div>
+</div>
