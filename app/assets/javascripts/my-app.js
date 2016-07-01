@@ -20,7 +20,8 @@ var mainView = myApp.addView('.view-main', {
 //searchlist();
 
 
-//mySearchbar.disable();
+
+
 
 
 

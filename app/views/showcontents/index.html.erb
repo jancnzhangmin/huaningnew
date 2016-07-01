@@ -35,17 +35,21 @@
         <div class="preloader"></div>
         <div class="pull-to-refresh-arrow"></div>
       </div>
-
-
       <!-- Scrollable page content-->
       <% content = @contents.last %>
-<input type="hidden" value=<%= content.id %> id="idindex">
+
+
+
+<input type="hidden" value= <%= content.id %> id="idindex">
           <div class="list-block media-list">
             <ul>
+
+
 
               <% @contents.each do |f| %>
                   <li>
                     <a href=<%= showcontent_path(f) %> class="item-link item-content">
+
                     <div class="item-media">
                       <% if f.contentimedia_content_type !=nil %>
                           <% if f.contentimedia_content_type.include?"image" %>
@@ -61,6 +65,7 @@
                       </div>
                       <div class="item-text"><%= f.summary %></div>
                     </div>
+
                     </a>
                   </li>
                   <% end %>
