@@ -36,6 +36,7 @@ class ShowcontentsController < ApplicationController
 
 
 
+
   end
 
   def jsonindex

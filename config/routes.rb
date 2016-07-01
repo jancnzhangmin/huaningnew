@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :sliders do
     collection do
       get 'search'
+      get 'jsonindex'
       end
   end
   resources :showusers

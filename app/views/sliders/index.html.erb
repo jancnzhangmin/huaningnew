@@ -40,7 +40,7 @@
         <div class="right">
 
 
-          <a href="\sliders\search" class="fa fa-search open-login-screen"></a>
+          <a href="\sliders\search" class="fa fa-search item-link"></a>
           <a href="#" data-panel="left"  class="link fa fa-user open-panel"></a>
 
 
@@ -55,10 +55,21 @@
     </div>
     <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
     <div class="pages navbar-through toolbar-through">
+
       <!-- Page, data-page contains page name-->
       <div data-page="index" class="page">
         <!-- Scrollable page content-->
+        <style>
+            .infinite-scroll-preloader {
+                margin-top:-20px;
+                margin-bottom: 10px;
+                text-align: center;
+            }
+                .pull-to-refresh-layer{
+                    margin-top: -100px;
+                }
 
+        </style>
 
 
         <!-- messages-content -->
@@ -70,7 +81,12 @@
 
 
         <div class="page-content" style="background:#eee;background:url( 'background2.jpg');">
-
+          <div class="page-content pull-to-refresh-content infinite-scroll">
+            <!-- 默认的下拉刷新层 -->
+            <div class="pull-to-refresh-layer">
+              <div class="preloader"></div>
+              <div class="pull-to-refresh-arrow"></div>
+            </div>
 
 
 
@@ -195,91 +211,49 @@
 
 
 
-          <!--<div class="list-block media-list">-->
-            <!--<ul>-->
-              <!--<li>-->
-                <!--<a href="#" class="item-link item-content">-->
-                  <!--<div class="item-media"><%=image_tag 'news.png',width: '70px' %></div>-->
-                  <!--<div class="item-inner">-->
-                    <!--<div class="item-title-row">-->
-                      <!--<div class="item-title">Yellow Submarine</div>-->
-                    <!--</div>-->
-                    <!--<div class="item-text">Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...</div>-->
-                  <!--</div>-->
-                <!--</a>-->
-              <!--</li>-->
 
-              <!--<li>-->
-                <!--<a href="#" class="item-link item-content">-->
-                  <!--<div class="item-media"><%=image_tag 'news.png',width: '70px' %></div>-->
-                  <!--<div class="item-inner">-->
-                    <!--<div class="item-title-row">-->
-                      <!--<div class="item-title">Yellow Submarine</div>-->
-                    <!--</div>-->
-                    <!--<div class="item-text">Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...</div>-->
-                  <!--</div>-->
-                <!--</a>-->
-              <!--</li>-->
 
-              <!--<li>-->
-                <!--<a href="#" class="item-link item-content">-->
-                  <!--<div class="item-media"><%=image_tag 'news.png',width: '70px' %></div>-->
-                  <!--<div class="item-inner">-->
-                    <!--<div class="item-title-row">-->
-                      <!--<div class="item-title">Yellow Submarine</div>-->
-                    <!--</div>-->
-                    <!--<div class="item-text">Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...</div>-->
-                  <!--</div>-->
-                <!--</a>-->
-              <!--</li>-->
+          <% content = @indexcontents.last %>
+          <input type="hidden" value=<%= content.id %> id="idindex">
+          <div class="list-block media-list" >
+            <ul style="background-color: transparent;">
 
-            <!--</ul>-->
-          <!--</div>-->
+              <% @indexcontents.each do |f| %>
+                  <li>
+                    <a href=<%= showcontent_path(f) %> class="item-link item-content">
+                    <div class="item-media" >
+                      <% if f.contentimedia_content_type !=nil %>
+                          <% if f.contentimedia_content_type.include?"image" %>
+                              <%=image_tag f.contentimedia.url,width: '70px' %>
+                          <% else %>
+                              <%=image_tag 'playerlogo.png',width: '70px' %>
+                          <% end %>
+                      <% end %>
+                    </div>
+                    <div class="item-inner">
+                      <div class="item-title-row">
+                        <div class="item-title"><%= f.title %></div>
+                      </div>
+                      <div class="item-text"><%= f.summary %></div>
+                    </div>
+                    </a>
+                  </li>
+              <% end %>
+
+
+
+
+            </ul>
+          </div>
+
+
+          <div class="infinite-scroll-preloader">
+            <div class="preloader">
 
 
 
 
 
-
-
-
-
-          <!--<div class="content-block">-->
-            <!--<div class="content-block-inner">-->
-              <!--<p>Couple of worlds here because my app is so awesome!</p>-->
-              <!--<p>Duis sed erat ac eros ultrices pharetra id ut tellus. Praesent rhoncus enim ornare ipsum aliquet ultricies. Pellentesque sodales erat quis elementum sagittis.</p>-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="content-block-title">What about simple navigation?</div>-->
-          <!--<div class="list-block">-->
-            <!--<ul>-->
-              <!--<li><a href="about.html" class="item-link">-->
-                <!--<div class="item-content">-->
-                  <!--<div class="item-inner">-->
-                    <!--<div class="item-title">About</div>-->
-                  <!--</div>-->
-                <!--</div></a></li>-->
-              <!--<li><a href="services.html" class="item-link">-->
-                <!--<div class="item-content">-->
-                  <!--<div class="item-inner">-->
-                    <!--<div class="item-title">Services</div>-->
-                  <!--</div>-->
-                <!--</div></a></li>-->
-              <!--<li><a href="form.html" class="item-link">-->
-                <!--<div class="item-content">-->
-                  <!--<div class="item-inner">-->
-                    <!--<div class="item-title">Form</div>-->
-                  <!--</div>-->
-                <!--</div></a></li>-->
-            <!--</ul>-->
-          <!--</div>-->
-          <!--<div class="content-block-title">Side panels</div>-->
-          <!--<div class="content-block">-->
-            <!--<div class="row">-->
-              <!--<div class="col-50"><a href="#" data-panel="left" class="button open-panel">Left Panel</a></div>-->
-              <!--<div class="col-50"><a href="#" data-panel="right" class="button open-panel">Right Panel</a></div>-->
-            <!--</div>-->
-          <!--</div>-->
 
 
 
@@ -303,4 +277,7 @@
 
 
 </div>
+        </div>
+      </div>
+    </div>
 

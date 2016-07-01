@@ -1,6 +1,6 @@
 class SlidersController < ApplicationController
   def index
-
+    @indexcontents = Content.where(isnew: '0').order('updated_at desc').limit(10)
   end
 
   def search
@@ -8,7 +8,22 @@ class SlidersController < ApplicationController
   end
 
 
+  def jsonindex
+    @idindex = params[:idindex]
 
+
+    if  (@idindex == nil || @idindex.to_i <=0 )
+      @contents = Content.where(isnew:'0').order('updated_at desc').limit(10)
+    end
+
+    if  @idindex.to_i > 0
+      @contents = Content.where(" id < '" + @idindex + "'  AND isnew = '0'" ).order('updated_at desc').limit(10)
+    end
+
+
+    render :json => @contents
+
+  end
 
 
 end

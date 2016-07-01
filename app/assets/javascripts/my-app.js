@@ -1,6 +1,7 @@
 // Initialize your app
 var myApp = new Framework7(
     {
+        pushState: true,
         scrollTopOnNavbarClick:true
 
     }
@@ -18,10 +19,7 @@ var mainView = myApp.addView('.view-main', {
 
 //searchlist();
 
-var mySearchbar = app.searchbar('.searchbar', {
-    searchList: '.list-block-search',
-    searchIn: '.item-title'
-});
+
 //mySearchbar.disable();
 
 
@@ -60,6 +58,114 @@ $(document).ready(function(){
     });
 
 
+
+
+
+
+    var ptrContent = $$('.pull-to-refresh-content');
+    //myApp.destroyPullToRefresh(ptrContent);
+    ptrContent.on('refresh', function (e) {
+        // 模拟2s的加载过程
+        setTimeout(function () {
+            // 随机图片
+            $('#idindex').val(999999999);
+            $.ajax({
+                type:"get",
+                url:"/sliders/jsonindex?idindex="+$('#idindex').val(),
+                dataType:"json",
+                success:function(data){
+                    $('ul').empty();
+                    $.each(data, function(i, item) {
+                        var itemHTML = '<li>'+
+                            '<a href=/showcontents/' +item.id +'  class="item-link item-content">'+
+                            '<div class="item-media">';
+
+                        if(item.contentimedia_content_type!=null  ) {
+                            if(item.contentimedia_content_type.indexOf("video")) {
+                                itemHTML += '<img src = /contentimedia/' + item.id + '/' + item.contentimedia_file_name + ' width= "70px">';
+                            }else
+                            {
+                                itemHTML += '<img src= "playerlogo.png" width= "70px" >';
+                            }
+                        }
+                        itemHTML+='</div>'+
+                            '<div class="item-inner">'+
+                            '<div class="item-title-row">'+
+                            '<div class="item-title">'+item.title+'</div>'+
+                            '</div>'+
+                            '<div class="item-text">'+item.summary+'</div>'+
+                            '</div>'+
+                            '</a>'+
+                            '</li>';
+                        // 前插新列表元素
+                        ptrContent.find('ul').append(itemHTML);
+                        $('#idindex').val(item.id);
+                        //alert(item.title);
+                    });
+                },
+                error:function(){
+                    alert("error");
+                }
+            });
+            // 列表元素的HTML字符串
+            // 加载完毕需要重置
+            myApp.pullToRefreshDone();
+        }, 2000);
+
+    });
+
+
+    var loading = false;
+    // 注册'infinite'事件处理函数
+    $$('.infinite-scroll').on('infinite', function () {
+        if (loading) return;
+        // 设置flag
+        loading = true;
+        // 模拟1s的加载过程
+        setTimeout(function () {
+            // 重置加载flag
+            loading = false;
+            $.ajax({
+                type:"get",
+                url:"/sliders/jsonindex?idindex="+$('#idindex').val(),
+                dataType:"json",
+                success:function(data){
+                    //$('ul').empty();
+                    $.each(data, function(i, item) {
+                        var itemHTML = '<li>'+
+                            '<a href=/showcontents/' +item.id +'  class="item-link item-content">'+
+                            '<div class="item-media">';
+                        if(item.contentimedia_content_type!=null  ) {
+                            if(item.contentimedia_content_type.indexOf("video")) {
+                                itemHTML += '<img src = /contentimedia/' + item.id + '/' + item.contentimedia_file_name + ' width= "70px">';
+                            }
+                            else
+                            {
+                                itemHTML += '<img src= "playerlogo.png" width= "70px" >';
+                            }
+                        }
+
+                        itemHTML+='</div>'+
+                            '<div class="item-inner">'+
+                            '<div class="item-title-row">'+
+                            '<div class="item-title">'+item.title+'</div>'+
+                            '</div>'+
+                            '<div class="item-text">'+item.summary+'</div>'+
+                            '</div>'+
+                            '</a>'+
+                            '</li>';
+                        // 前插新列表元素
+                        ptrContent.find('ul').append(itemHTML);
+                        $('#idindex').val(item.id);
+                        //alert(item.title);
+                    });
+                },
+                error:function(){
+                    alert("error");
+                }
+            });
+        }, 1000);
+    });
 
 
 
@@ -173,6 +279,14 @@ myApp.onPageInit('index',function(page){
     //var mySearchbar = $$('.searchbar')[0].f7Searchbar;
     //mySearchbar.disable();
     //mySearchbar.clear();
+
+
+
+
+
+
+
+
 
 
 
@@ -514,6 +628,51 @@ myApp.onPageInit('login',function(page){
 
 
 myApp.onPageInit('search',function(page){
+    $('.list-block').hide();
+    $('.page[data-page="search"] input[type="search"]').keyup(function() {
+
+        if ($('.page[data-page="search"] input[type="search"]').val()=="")
+        {
+$('.list-block').hide();
+        }else
+        {
+            $('.list-block').show();
+        }
+
+    });
+
+
+
+});
+
+myApp.onPageInit('showusers',function(page){
+
+$(document).ready(function(){
+
+    function isPhoneNo(phone) {
+        var reg =  /^1[34578]\d{9}$/;
+        return reg.test(phone);
+    }
+
+    // 判断手机号码
+    var str = '';
+
+    $('#smt').click(function(){
+    if ($.trim($('#phone').val()).length == 0) {
+        myApp.alert("请输入正确的手机号码",'');
+        $('#phone').focus();
+        return false;
+    } else {
+        if(isPhoneNo($.trim($('#phone').val()) == false)) {
+            myApp.alert("请输入正确的手机号码",'');
+            $('#phone').focus();
+            return false;
+        }
+    }
+    });
+
+
+});
 
 
 
