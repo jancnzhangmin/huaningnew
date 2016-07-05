@@ -527,12 +527,43 @@ $('#idindex').val(item.id);
 myApp.onPageInit('showcontent',function(page){
 
 
-
+src="http://v3.jiathis.com/code/jia.js";
 
 
 // Add view
 
+$('#smt').click(function(){
 
+    setTimeout(function () {
+        // 重置加载flag
+uu="/contents/"+$('#content_id').val()+"/comments/createnew?summary="+$('#summary').val()+'&user_id='+$('#user_id').val()+'&content_id='+$('#content_id').val()+'&isshow='+$('#isshow').val();
+
+        $.ajax({
+            type:"post",
+            url:"/contents/"+$('#content_id').val()+"/comments/createnew?summary="+$('#summary').val()+'&user_id='+$('#user_id').val()+'&content_id='+$('#content_id').val()+'&isshow='+$('#isshow').val(),
+            dataType:"json",
+            success:function(data){
+
+                //$('ul').empty();
+                mainView.router.loadPage('/contents/'+$('#content_id').val()+'/comments');
+
+
+                    //alert(item.title);
+
+            },
+            error:function(){
+                //alert(uu);
+            }
+        });
+
+
+
+
+
+    }, 1000);
+return false;
+
+});
 
 
 
@@ -590,6 +621,9 @@ $$('.open-info').on('click', function () {
 
 myApp.onPageInit('login',function(page){
 
+
+
+
     $('#submit').click(function(){
 
         setTimeout(function () {
@@ -603,7 +637,9 @@ myApp.onPageInit('login',function(page){
 
                       if(item) {
                           flag =false;
-                          mainView.router.back(mainView);
+                          mainView.router.refreshPreviousPage();
+                          //mainView.router.back('/');
+                          location.href='/';
                       }
                     });
                     if (flag){

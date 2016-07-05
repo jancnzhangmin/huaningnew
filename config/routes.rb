@@ -5,7 +5,15 @@ Rails.application.routes.draw do
 
   resources :banners
   resources :clas
-  resources :contents
+  resources :contents do
+    resources :comments do
+      collection do
+        post 'createnew'
+      end
+    end
+
+  end
+
   resources :sliders do
     collection do
       get 'search'

@@ -104,25 +104,79 @@
       <div class="toolbar-inner">
 
         <a href="#" data-picker=".picker-1" class="link fa fa-pencil open-picker">&nbsp;评一下</a>
-        <a href="#" class="fa fa-comment">&nbsp;<%= @commentcount %></a>
+        <a href=<%= content_comments_path(@content) %> class="fa fa-comment">&nbsp;<%= @commentcount %></a>
         <a href="#" data-picker=".picker-2" class="link fa fa-share open-picker"></a>
       </div>
     </div>
 
 
-    <div class="picker-modal picker-1">
+    <div class="picker-modal picker-1" style="background-color: white;">
       <!-- Picker Modal Toolbar, optional -->
-
+      <div class="toolbar">
+        <div class="toolbar-inner">
+          <div class="left"></div>
+          <div class="right"><a href="#" class="close-picker"><i class="fa fa-angle-down"></i></a></div>
+        </div>
+      </div>
       <!-- Picker Modal Inner -->
-      <div class="picker-modal-inner">
+      <div class="picker-modal-inner" style="margin-top: -30px;">
+         <% if session[:userid] !=nil %>
+
+
+            <%= form_for([@content, @content.comments.build]) do |f| %>
         <!-- Picker content -->
         <div class="content-block">
 
-          <% if session[:username] %>
-<%= session[:username] %>
+
+
+              <div class="list-block">
+                <ul>
+
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-input">
+                          <%= session[:username] %>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-input">
+                      <%= f.text_area :summary,id:'summary' %>
+                    </div>
+                  </div>
+                </div>
+              </li>
+                  <%= f.hidden_field :user_id,value:session[:userid],id:'user_id' %>
+                  <%= f.hidden_field :isshow,value:'0',id:'isshow' %>
+                  <input type="hidden" value=<%=@content.id %> id='content_id' >
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-input">
+                          <%= f.button '发布',class:'button pull-right',id:'smt' %>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+
+              </ul>
+              </div>
+
+          <% end %>
+          <% else %>
+            <ul>
+              <li>
+                <br>
+              您还未登录，不能进行评论，请<a href ='logins'>登录</a>
+              </li>
+            </ul>
           <% end %>
 
-          <p>Integer mollis nulla id nibh elementum finibus...</p>
         </div>
       </div>
     </div>
@@ -130,7 +184,12 @@
 
     <div class="picker-modal picker-2">
       <!-- Picker Modal Toolbar, optional -->
-
+      <div class="toolbar">
+        <div class="toolbar-inner">
+          <div class="left"></div>
+          <div class="right"><a href="#" class="close-picker"><i class="fa fa-angle-down"></i></a></div>
+        </div>
+      </div>
       <!-- Picker Modal Inner -->
       <div class="picker-modal-inner">
         <!-- Picker content -->
