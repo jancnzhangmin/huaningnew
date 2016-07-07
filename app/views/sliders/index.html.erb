@@ -63,9 +63,7 @@
                 margin-bottom: 10px;
                 text-align: center;
             }
-                .pull-to-refresh-layer{
-                    margin-top: -100px;
-                }
+
 
         </style>
 
@@ -81,9 +79,9 @@
         <div class="page-content" style="background-color: white;">
           <div class="page-content pull-to-refresh-content infinite-scroll">
             <!-- 默认的下拉刷新层 -->
-            <div class="pull-to-refresh-layer">
+            <div class="pull-to-refresh-layer" style="height: 0px;">
               <div class="preloader"></div>
-              <div class="pull-to-refresh-arrow"></div>
+              <div class="pull-to-refresh-arrow" style="display: none;"></div>
             </div>
           <style type="text/css">
             .myshow{

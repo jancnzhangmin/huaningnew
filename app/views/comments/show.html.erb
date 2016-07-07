@@ -1,24 +1,8 @@
-<p id="notice"><%= notice %></p>
+<% @content.comments.each do |comment| %>
+    <p>
+      <strong>Commenter:</strong>
+      <%= comment.summary %>
+    </p>
 
-<p>
-  <strong>Summary:</strong>
-  <%= @comment.summary %>
-</p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @comment.content_id %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @comment.user_id %>
-</p>
-
-<p>
-  <strong>Isshow:</strong>
-  <%= @comment.isshow %>
-</p>
-
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', comments_path %>
+<% end %>

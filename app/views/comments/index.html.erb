@@ -1,33 +1,54 @@
-<p id="notice"><%= notice %></p>
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="left"><a href="#" data-no-turbolink = "true" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
+    <div class="center sliding">评论</div>
+    <div class="right">
+      <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+    </div>
+  </div>
+</div>
 
-<h1>Listing Comments</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Summary</th>
-      <th>Content</th>
-      <th>User</th>
-      <th>Isshow</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="pages">
+  <!-- Page, data-page contains page name-->
+  <div data-page="showcontent" class="page">
+    <!-- Scrollable page content-->
+    <div class="page-content">
+      <div class="content-block">
+        <div class="content-block-inner">
 
-  <tbody>
-    <% @comments.each do |comment| %>
-      <tr>
-        <td><%= comment.summary %></td>
-        <td><%= comment.content_id %></td>
-        <td><%= comment.user_id %></td>
-        <td><%= comment.isshow %></td>
-        <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+<% @content.comments.order('id desc').each do |comment| %>
 
-<%= link_to 'New Comment', new_comment_path %>
+
+
+              <div class="list-block media-list">
+                <ul>
+                  <li>
+                    <a href="#" class="item-link item-content">
+                      <div class="item-inner">
+                        <div class="item-title">
+                          <div class="item-title">
+                            <% @users.each do |user| %>
+                                <% if user.id == comment.user_id %>
+                                    <%= user.name %>
+                                    <% break %>
+                                <% end %>
+                            <% end %>
+                          </div>
+                        </div>
+                        <div class="item-text">Lorem ipsum dolor sit amet...</div>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+
+<% end %>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
