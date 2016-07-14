@@ -30,6 +30,11 @@ class ShowcontentsController < ApplicationController
         @contents = Content.where("keyword ='"+ @keyword +"'  AND isnew = '0'").order('updated_at desc').limit(10)
       end
 
+    @lanmus=Content.all
+    if params[:keyword] == 'news'
+      @lanmus = Content.where("keyword = 'lanmu'  AND isnew = '0'").order('updated_at desc').limit(10)
+    end
+
 
 
 

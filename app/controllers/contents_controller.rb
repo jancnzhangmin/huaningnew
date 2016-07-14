@@ -14,7 +14,10 @@ class ContentsController < ApplicationController
     end
 
     if params[:keyword] == 'news'
-      @title = '华宁新闻'
+      @title = '华宁新闻_新闻'
+    end
+    if params[:keyword] == 'lanmu'
+      @title = '华宁新闻_栏目'
     end
     if params[:keyword] == 'zoujin'
       @title = '走进华宁'
@@ -54,6 +57,10 @@ class ContentsController < ApplicationController
     if params[:keyword] == 'news'
       content = Content.create(isnew:'1',keyword:'news')
       redirect_to edit_content_path(content,:keyword=>'news')
+    end
+    if params[:keyword] == 'lanmu'
+      content = Content.create(isnew:'1',keyword:'lanmu')
+      redirect_to edit_content_path(content,:keyword=>'lanmu')
     end
     if params[:keyword] == 'zoujin'
       content = Content.create(isnew:'1',keyword:'zoujin')
