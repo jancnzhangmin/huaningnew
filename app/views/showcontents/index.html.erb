@@ -35,7 +35,10 @@
 
     <div class="page-content pull-to-refresh-content infinite-scroll">
       <!-- 默认的下拉刷新层 -->
-
+      <div class="pull-to-refresh-layer">
+        <div class="preloader"></div>
+        <div class="pull-to-refresh-arrow"></div>
+      </div>
       <!-- Scrollable page content-->
       <% content = @contents.last %>
 
@@ -66,33 +69,13 @@
 
 
 
-            <div class="list-block media-list">
-              <ul>
-                <li>
-                  <a href="#" class="item-link item-content">
-                    <div class="item-media"><img src="..." width="80"></div>
-                    <div class="item-inner">
-                      <div class="item-title-row">
-                        <div class="item-title">Yellow Submarine</div>
-                        <div class="item-after">$15</div>
-                      </div>
-                      <div class="item-subtitle">Beatles</div>
-                      <div class="item-text">Lorem ipsum dolor sit amet...</div>
-                    </div>
-                  </a>
-                </li>
-                ...
-              </ul>
-            </div>
-
-
 
 
             <ul>
 
               <% @contents.each do |f| %>
                   <li>
-                    <a href=<%= showcontent_path(f) %> class="item-link item-content">
+                    <a href=<%= showcontent_path(f) %> class="item-link item-content" data-no-turbolink = true>
 
                     <div class="item-media">
                       <% if f.contentimedia_content_type !=nil %>

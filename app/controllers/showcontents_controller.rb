@@ -98,6 +98,15 @@ render :json => @contents
 
   def show
     @content = Content.find(params[:id])
+
+    visit = @content.visit.to_i
+    visit =visit + 1
+    @content.visit=visit
+     @content.save
+
+
+
+
     @commentcount = @content.comments.count
   end
 
