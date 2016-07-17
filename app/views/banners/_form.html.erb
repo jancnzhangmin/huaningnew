@@ -1,29 +1,77 @@
-<%= form_for(@banner) do |f| %>
-  <% if @banner.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@banner.errors.count, "error") %> prohibited this banner from being saved:</h2>
+<script>
+  $(document).ready(function(){
 
-      <ul>
-      <% @banner.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+    $('#isactive').click(function(){
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+      var flag = $('#isactive').is(':checked');
+      if(flag)
+      {
+        $('#active').val('1');
+      }else
+      {
+        $('#active').val('0');
+      }
+
+
+
+    });
+
+
+
+});
+</script>
+<div class="ibox-content form-horizontal m-t">
+
+
+  <div class="form-group">
+    <%= form_for(@banner,:html => {:class=>'form-horizontal m-t',:multipart => true}) do |f| %>
+
   </div>
-  <div class="field">
-    <%= f.label :link %><br>
-    <%= f.text_field :link %>
-  </div>
-  <div class="field">
-    <%= f.label :active %><br>
-    <%= f.number_field :active %>
-  </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">标题：</label>
+          <div class="col-sm-6">
+            <%= f.text_field :title, class:"form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-3 control-label">链接：</label>
+          <div class="col-sm-6">
+            <%= f.text_field :link, class:"form-control" %>
+          </div>
+        </div>
+
+
+          <div class="form-group">
+            <div class="checkbox">
+              <div class="checkbox">
+                <label class="col-sm-3 control-label">
+                  <input class="col-sm-6" type="checkbox" value="1" id="isactive" checked="true">显示</label>
+            </div>
+            </div>
+          </div>
+          <div>
+            <%= f.hidden_field :active, class:"form-control" ,id:"active"%>
+          </div>
+
+
+        <div class="form-group">
+          <label class="col-sm-3 control-label">主页图片：</label>
+          <div class="col-sm-6">
+            <%= f.file_field :banner, placeholder:"Banner" %>
+          </div>
+        </div>
+
+
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit'确定',class: "btn btn-w-m btn-success mylink pull-right",'data-no-turbolink'=>true %>
   </div>
 <% end %>
+    </div>
+  </div>
+
+
+
+
+

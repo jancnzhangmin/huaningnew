@@ -1,3 +1,6 @@
+<%= render "left" %>
+<%= render "top" %>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -15,5 +18,10 @@
   <%= @banner.active %>
 </p>
 
-<%= link_to 'Edit', edit_banner_path(@banner) %> |
-<%= link_to 'Back', banners_path %>
+<p>
+  <strong>主页图片:</strong>
+  <%= image_tag @banner.banner.url %>
+</p>
+
+<%= link_to '编辑', edit_banner_path(@banner) %> |
+<%= link_to '返回', banners_path %>

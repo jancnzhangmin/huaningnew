@@ -11,14 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160628083144) do
+ActiveRecord::Schema.define(version: 20160717063647) do
 
   create_table "banners", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.string   "link",       limit: 255
-    t.integer  "active",     limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "title",               limit: 255
+    t.string   "link",                limit: 255
+    t.integer  "active",              limit: 4
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "banner_file_name",    limit: 255
+    t.string   "banner_content_type", limit: 255
+    t.integer  "banner_file_size",    limit: 4
+    t.datetime "banner_updated_at"
   end
 
   create_table "clas", force: :cascade do |t|
