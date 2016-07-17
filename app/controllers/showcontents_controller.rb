@@ -22,8 +22,20 @@ class ShowcontentsController < ApplicationController
       if params[:keyword] == 'fabu'
         @title = '轻快发布'
       end
+      if params[:keyword] == 'bianmin'
+        @title = '便民服务'
+      end
       if params[:keyword] == 'dianbo'
         @title = '栏目点播'
+      end
+      if params[:keyword] == 'jiedao'
+        @title = '部门街道'
+      end
+      if params[:keyword] == 'liantong'
+        @title = '联通'
+      end
+      if params[:keyword] == 'lvyou'
+        @title = '旅游风向标'
       end
 
       if @keyword
@@ -66,8 +78,20 @@ class ShowcontentsController < ApplicationController
     if params[:keyword] == 'fabu'
       @title = '轻快发布'
     end
+    if params[:keyword] == 'bianmin'
+      @title = '便民服务'
+    end
     if params[:keyword] == 'dianbo'
       @title = '栏目点播'
+    end
+    if params[:keyword] == 'jiedao'
+      @title = '部门街道'
+    end
+    if params[:keyword] == 'liantong'
+      @title = '联通'
+    end
+    if params[:keyword] == 'lvyou'
+      @title = '旅游风向标'
     end
 
     if @keyword && (@idindex == nil || @idindex.to_i <=0 )

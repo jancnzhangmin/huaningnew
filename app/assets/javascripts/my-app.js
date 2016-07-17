@@ -366,7 +366,7 @@ myApp.onPageInit('contentindex',function(page){
         setTimeout(function () {
             // 随机图片
             $('#idindex').val(999999999);
-
+//////
             $.ajax({
                 type:"get",
                 url:"/showcontents/jsonindex?keyword="+keyword+"&idindex="+$('#idindex').val(),
@@ -527,7 +527,7 @@ $('#idindex').val(item.id);
 myApp.onPageInit('showcontent',function(page){
 
 
-src="http://v3.jiathis.com/code/jia.js";
+//src="http://v3.jiathis.com/code/jia.js";
 
 
 // Add view
@@ -567,8 +567,51 @@ return false;
 
 
 
+    $$('.create-picker').on('click', function () {
 
 
+        <!-- JiaThis Button BEGIN -->
+
+
+
+
+        // Check first, if we already have opened picker
+        if ($$('.picker-modal.modal-in').length > 0) {
+            myApp.closeModal('.picker-modal.modal-in');
+        }
+        myApp.pickerModal(
+            '<div class="picker-modal" style="background-color: #ffffff;">' +
+            '<div class="toolbar">' +
+            '<div class="toolbar-inner">' +
+            '<div class="left"></div>' +
+            '<div class="right"><a href="#" class="close-picker"><i class="fa fa-angle-down"></i></a></div>' +
+            '</div>' +
+            '</div>' +
+            '<div class="picker-modal-inner">' +
+            '<div class="content-block">' +
+                <!-- JiaThis Button BEGIN -->
+            '<div class="jiathis_style_32x32">'+
+        '<a class="jiathis_button_qzone"></a>'+
+
+        '<a class="jiathis_button_tqq"></a>'+
+        '<a class="jiathis_button_weixin"></a>'+
+
+
+        '<a class="jiathis_counter_style"></a>'+
+        '</div>'+
+        '<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>'+
+
+
+
+
+
+            '</div>' +
+            '</div>' +
+            '</div>'
+        )
+    });
+
+    <!-- JiaThis Button BEGIN -->
 
 
     mainView.router.refreshPage();
