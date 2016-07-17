@@ -31,8 +31,20 @@ class ContentsController < ApplicationController
     if params[:keyword] == 'fabu'
       @title = '轻快发布'
     end
+    if params[:keyword] == 'bianmin'
+      @title = '便民服务'
+    end
     if params[:keyword] == 'dianbo'
       @title = '栏目点播'
+    end
+    if params[:keyword] == 'jiedao'
+      @title = '部门街道'
+    end
+    if params[:keyword] == 'liantong'
+      @title = '联通'
+    end
+    if params[:keyword] == 'lvyou'
+      @title = '旅游方向标'
     end
 
     if @keyword
@@ -78,9 +90,29 @@ class ContentsController < ApplicationController
       content = Content.create(isnew:'1',keyword:'fabu')
       redirect_to edit_content_path(content,:keyword=>'fabu')
     end
+    if params[:keyword] == 'bianmin'
+      content = Content.create(isnew:'1',keyword:'bianmin')
+      redirect_to edit_content_path(content,:keyword=>'bianmin')
+    end
+
     if params[:keyword] == 'dianbo'
       content = Content.create(isnew:'1',keyword:'dianbo')
       redirect_to edit_content_path(content,:keyword=>'dianbo')
+    end
+
+    if params[:keyword] == 'jiedao'
+      content = Content.create(isnew:'1',keyword:'jiedao')
+      redirect_to edit_content_path(content,:keyword=>'jiedao')
+    end
+
+    if params[:keyword] == 'liantong'
+      content = Content.create(isnew:'1',keyword:'liantong')
+      redirect_to edit_content_path(content,:keyword=>'liantong')
+    end
+
+    if params[:keyword] == 'lvyou'
+      content = Content.create(isnew:'1',keyword:'lvyou')
+      redirect_to edit_content_path(content,:keyword=>'lvyou')
     end
   end
 
@@ -124,7 +156,7 @@ class ContentsController < ApplicationController
   def destroy
     @content.destroy
     respond_to do |format|
-      format.html { redirect_to contents_url, notice: 'Content was successfully destroyed.' }
+      format.html { redirect_to contents_path(:keyword=>session[:keyword]), notice: 'Content was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
