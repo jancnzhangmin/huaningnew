@@ -1,7 +1,5 @@
 class ShowcontentsController < ApplicationController
-
   def index
-
       @keyword = params[:keyword]
       @contents = Content.all
       if params[:keyword] == 'express'
@@ -35,25 +33,16 @@ class ShowcontentsController < ApplicationController
         @title = '联通'
       end
       if params[:keyword] == 'lvyou'
-        @title = '旅游风向标'
+        @title = '旅游方向标'
       end
 
       if @keyword
         @contents = Content.where("keyword ='"+ @keyword +"'  AND isnew = '0'").order('updated_at desc').limit(10)
       end
-
     @lanmus=Content.all
     if params[:keyword] == 'news'
       @lanmus = Content.where("keyword = 'lanmu'  AND isnew = '0'").order('updated_at desc').limit(10)
     end
-
-
-
-
-
-
-
-
   end
 
   def jsonindex
@@ -91,7 +80,7 @@ class ShowcontentsController < ApplicationController
       @title = '联通'
     end
     if params[:keyword] == 'lvyou'
-      @title = '旅游风向标'
+      @title = '旅游方向标'
     end
 
     if @keyword && (@idindex == nil || @idindex.to_i <=0 )
