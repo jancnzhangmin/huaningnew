@@ -1,0 +1,26 @@
+<%= render "left" %>
+<%= render "top" %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>姓名:</strong>
+  <%= @admin.name %>
+</p>
+
+<p>
+  <strong>登陆名</strong>
+  <%= @admin.login %>
+</p>
+
+
+<p>
+  <strong>权限:</strong>
+  <%= @admin.auth  %>
+</p>
+<p>
+  <strong>状态:</strong>
+  <%= @admin.status%>
+</p>
+<%= link_to '编辑', edit_admin_path(@admin) %> |
+<%= link_to '返回', admins_path %>

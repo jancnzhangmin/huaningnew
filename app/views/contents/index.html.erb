@@ -16,6 +16,7 @@
     </tr>
   </thead>
   <tbody>
+  <% session[:keyword] = params[:keyword] %>
   <% if @contents %>
       <% @contents.each do |content| %>
           <tr>
