@@ -9,8 +9,19 @@
 </p>
 
 <p>
-  <strong>登陆名</strong>
+  <strong>登陆名:</strong>
   <%= @admin.login %>
+</p>
+
+
+<p>
+  <strong>密码:</strong>
+  <%= @admin.password %>
+</p>
+
+<p>
+  <strong>登陆名:</strong>
+  <%= @admin.password_confirmation %>
 </p>
 
 
@@ -22,5 +33,4 @@
   <strong>状态:</strong>
   <%= @admin.status%>
 </p>
-<%= link_to '编辑', edit_admin_path(@admin) %> |
-<%= link_to '返回', admins_path %>
+

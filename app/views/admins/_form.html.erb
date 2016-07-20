@@ -1,25 +1,4 @@
-<script>
-    $(document).ready(function(){
 
-        $('#isactive').click(function(){
-
-            var flag = $('#isactive').is(':checked');
-            if(flag)
-            {
-                $('#active').val('1');
-            }else
-            {
-                $('#active').val('0');
-            }
-
-
-
-        });
-
-
-
-    });
-</script>
 <div class="ibox-content form-horizontal m-t">
 
 
@@ -70,9 +49,6 @@
             <%= f.text_field :status,class:"form-control" %>
           </div>
         </div>
-
-
-
         <div class="actions">
           <%= f.submit'确定',class: "btn btn-w-m btn-success mylink pull-right",'data-no-turbolink'=>true %>
         </div>

@@ -28,11 +28,11 @@ class AdminsController < ApplicationController
 
     respond_to do |format|
       if @admin.save
-        format.html { redirect_to @admin, notice: 'Admin was successfully created.' }
+        format.html { redirect_to admins_path, notice: '管理员创建成功.' }
         format.json { render :show, status: :created, location: @admin }
       else
         format.html { render :new }
-        format.json { render json: @admin.errors, status: :unprocessable_entity }
+        format.json { render json: admins_path.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -42,7 +42,7 @@ class AdminsController < ApplicationController
   def update
     respond_to do |format|
       if @admin.update(admin_params)
-        format.html { redirect_to @admin, notice: 'Admin was successfully updated.' }
+        format.html { redirect_to admins_path, notice: 'Admin was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin }
       else
         format.html { render :edit }

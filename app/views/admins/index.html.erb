@@ -16,7 +16,7 @@
 
           <th>权限</th>
           <th>状态</th>
-          <th>其他</th>
+          <th>操作</th>
           <th colspan="3"></th>
         </tr>
         </thead>
@@ -26,11 +26,10 @@
             <tr>
               <td><%= adm.name %></td>
               <td><%= adm.login %></td>
-
               <td><%= adm.auth %></td>
               <td><%= adm.status %></td>
-
-              <td><%= link_to '删除', adm, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to '编辑', edit_admin_path(adm) %>&nbsp;&nbsp;
+              <%= link_to '删除', adm, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
         <% end %>
         </tbody>
