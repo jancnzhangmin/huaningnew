@@ -1,3 +1,7 @@
+<style>
+
+
+</style>
 <div class="navbar">
   <div class="navbar-inner">
     <div class="left"><a href="#" data-no-turbolink = "true" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
@@ -95,9 +99,44 @@
 
         <a href="#" data-picker=".picker-1" class="link fa fa-pencil open-picker">&nbsp;评一下</a>
         <a href=<%= content_comments_path(@content) %> class="fa fa-comment"> &nbsp;<%= @commentcount %></a>
-        <a href="#"  class="link fa fa-share create-picker"></a>
+        <a href="#" data-picker=".picker-2" class="link fa fa-share open-picker"></a>
       </div>
     </div>
+
+
+    <div class="picker-modal picker-2" style="background-color: white">
+      <!-- Picker Modal Toolbar, optional -->
+
+      <div class="toolbar">
+        <div class="toolbar-inner">
+          <div class="left"></div>
+          <div class="right"><a href="#" class="close-picker"><i class="fa fa-angle-down"></i></a></div>
+        </div>
+      </div>
+      <!-- Picker Modal Inner -->
+      <div class="picker-modal-inner">
+        <!-- Picker content -->
+
+          <div class="bdsharebuttonbox">
+              <a href="#" class="bds_weixin" data-cmd="weixin" style="padding-left: 13%"><%= image_tag 'weixin.png' %></a>
+              <a href="#" class="bds_pyq" data-cmd="pyq" style="padding-left: 13%"><%= image_tag 'pyq.png' %></a>
+              <a href="#" class="bds_qq" data-cmd="more" style="padding-left: 13%"><%= image_tag 'qq.png'%></a>
+              <a href="#" class="bds_qzone" data-cmd="qzone" style="padding-left: 13%"><%= image_tag 'qzone.png' %></a>
+          </div>
+          <script>window._bd_share_config=
+          {"common":{
+              "bdSnsKey":{},
+              "bdText":"",
+              "bdMini":"2",
+              "bdMiniList":false,
+              "bdPic":"",
+              "bdStyle":"0",
+              "bdSize":"32"},
+              "share":{}};
+          with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+      </div>
+    </div>
+
 
 
     <div class="picker-modal picker-1" style="background-color: white;">
@@ -166,15 +205,6 @@
       </div>
     </div>
 
-    <div class="picker-modal picker-2">
-      <!-- Picker Modal Toolbar, optional -->
-
-      <!-- Picker Modal Inner -->
-      <div class="picker-modal-inner">
-        <!-- Picker content -->
-        <div class="content-block">
-
-sdfsdfsdf
 
 
         </div>
@@ -183,4 +213,5 @@ sdfsdfsdf
 
 
   </div>
+</div>
 </div>

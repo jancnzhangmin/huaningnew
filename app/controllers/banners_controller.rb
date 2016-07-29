@@ -29,7 +29,7 @@ class BannersController < ApplicationController
 
     respond_to do |format|
       if @banner.save
-        format.html { redirect_to @banner, notice: '成功创建.' }
+        format.html { redirect_to banners_path, notice: '成功创建.' }
         format.json { render :show, status: :created, location: @banner }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class BannersController < ApplicationController
   def update
     respond_to do |format|
       if @banner.update(banner_params)
-        format.html { redirect_to @banner, notice: '成功更新.' }
+        format.html { redirect_to banners_path, notice: '成功更新.' }
         format.json { render :show, status: :ok, location: @banner }
       else
         format.html { render :edit }
