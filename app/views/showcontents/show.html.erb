@@ -1,7 +1,4 @@
-<style>
 
-
-</style>
 <div class="navbar">
   <div class="navbar-inner">
     <div class="left"><a href="#" data-no-turbolink = "true" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
@@ -17,9 +14,6 @@
     <!-- Scrollable page content-->
 
     <!-- JiaThis Button BEGIN -->
-
-
-
     <div class="page-content">
       <div class="content-block">
         <div class="content-block-inner">
@@ -28,11 +22,26 @@
           </div>
           <div class="row">
 
-            <div class="col-auto" align="right"><%= @content.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></div>
+            <div class="col-auto" align="right"><%= @content.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
+              <!-- JiaThis Button BEGIN -->
+              <div class="jiathis_style_32x32">
+                <a class="jiathis_button_qzone"></a>
+                <a class="jiathis_button_tsina"></a>
+                <a class="jiathis_button_tqq"></a>
+                <a class="jiathis_button_weixin"></a>
+                <a class="jiathis_button_renren"></a>
+                <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+                <a class="jiathis_counter_style"></a>
+              </div>
+              <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+              <!-- JiaThis Button END -->
+            </div>
+
           </div>
           <% if @content.contentimedia_content_type != nil %>
           <% if  @content.contentimedia_content_type.include?"video" %>
               <input type="hidden" id="mp4url" value=<%=@content.contentimedia.url %>>
+
               <div class="row">
 
                 <div id="jp_container_1" class="jp-video jp-video-360p col-auto" role="application" aria-label="media player">
@@ -115,27 +124,19 @@
       </div>
       <!-- Picker Modal Inner -->
       <div class="picker-modal-inner">
-        <!-- Picker content -->
+        <!-- Picker content 分享 -->
+        <div class="bdsharebuttonbox">
+          <a href="#" class="bds_more" data-cmd="more"></a>
+          <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+          <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+          <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+          <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+          <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+        <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"32"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 
-          <div class="bdsharebuttonbox">
-              <a href="#" class="bds_weixin" data-cmd="weixin" style="padding-left: 13%"><%= image_tag 'weixin.png' %></a>
-              <a href="#" class="bds_pyq" data-cmd="pyq" style="padding-left: 13%"><%= image_tag 'pyq.png' %></a>
-              <a href="#" class="bds_qq" data-cmd="more" style="padding-left: 13%"><%= image_tag 'qq.png'%></a>
-              <a href="#" class="bds_qzone" data-cmd="qzone" style="padding-left: 13%"><%= image_tag 'qzone.png' %></a>
-          </div>
-          <script>window._bd_share_config=
-          {"common":{
-              "bdSnsKey":{},
-              "bdText":"",
-              "bdMini":"2",
-              "bdMiniList":false,
-              "bdPic":"",
-              "bdStyle":"0",
-              "bdSize":"32"},
-              "share":{}};
-          with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
       </div>
-    </div>
+      </div>
+
 
 
 

@@ -171,4 +171,6 @@ class ContentsController < ApplicationController
     def content_params
       params.require(:content).permit(:title, :summary, :content, :cla_id, :visit, :keywork, :isshipin, :isnew, :contentimedia)
     end
+
+
 end

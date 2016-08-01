@@ -589,13 +589,9 @@ return false;
             '</div>' +
             '<div class="picker-modal-inner">' +
             '<div class="content-block">' +
-                <!-- JiaThis Button BEGIN -->
 
 
-
-
-
-            '</div>' +
+        '</div>' +
             '</div>' +
             '</div>'
         )
