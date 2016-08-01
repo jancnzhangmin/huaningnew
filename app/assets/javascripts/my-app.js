@@ -583,7 +583,8 @@ return false;
             '<div class="picker-modal" style="background-color: #ffffff;">' +
             '<div class="toolbar">' +
             '<div class="toolbar-inner">' +
-            '<div class="left"></div>' +
+            '<div class="left">' +
+            '</div>' +
             '<div class="right"><a href="#" class="close-picker"><i class="fa fa-angle-down"></i></a></div>' +
             '</div>' +
             '</div>' +
@@ -591,7 +592,15 @@ return false;
             '<div class="content-block">' +
 
 
+
         '</div>' +
+
+
+
+
+                <!-- JiaThis Button BEGIN -->
+            '</div>' +
+
             '</div>' +
             '</div>'
         )
