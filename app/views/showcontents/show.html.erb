@@ -1,4 +1,3 @@
-
 <div class="navbar">
   <div class="navbar-inner">
     <div class="left"><a href="#" data-no-turbolink = "true" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
@@ -22,68 +21,67 @@
           </div>
           <div class="row">
 
-            <div class="col-auto" align="right"><%= @content.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
-            </div>
+            <div class="col-auto" align="right"><%= @content.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></div>
 
           </div>
           <% if @content.contentimedia_content_type != nil %>
-          <% if  @content.contentimedia_content_type.include?"video" %>
-              <input type="hidden" id="mp4url" value=<%=@content.contentimedia.url %>>
+              <% if  @content.contentimedia_content_type.include?"video" %>
+                  <input type="hidden" id="mp4url" value=<%=@content.contentimedia.url %>>
 
-              <div class="row">
+                  <div class="row">
 
-                <div id="jp_container_1" class="jp-video jp-video-360p col-auto" role="application" aria-label="media player">
-                  <div class="jp-type-single">
-                    <div id="jquery_jplayer_1" class="jp-jplayer"></div>
-                    <div class="jp-gui">
-                      <div class="jp-video-play">
-                        <button  class="jp-video-play-icon" role="button" tabindex="0" style="display: none;">play</button>
-                      </div>
-                      <div class="jp-interface">
-                        <div class="jp-progress">
-                          <div class="jp-seek-bar">
-                            <div class="jp-play-bar"></div>
+                    <div id="jp_container_1" class="jp-video jp-video-360p col-auto" role="application" aria-label="media player">
+                      <div class="jp-type-single">
+                        <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+                        <div class="jp-gui">
+                          <div class="jp-video-play">
+                            <button  class="jp-video-play-icon" role="button" tabindex="0" style="display: none;">play</button>
                           </div>
-                        </div>
-                        <div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
-                        <div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
-                        <div class="jp-controls-holder">
-                          <div class="jp-controls">
-                            <button class="jp-play" role="button" tabindex="0">play</button>
-                            <button class="jp-stop" role="button" tabindex="0">stop</button>
-                          </div>
-                          <div class="jp-volume-controls">
-                            <button class="jp-mute" role="button" tabindex="0">mute</button>
-                            <button class="jp-volume-max" role="button" tabindex="0">max volume</button>
-                            <div class="jp-volume-bar">
-                              <div class="jp-volume-bar-value"></div>
+                          <div class="jp-interface">
+                            <div class="jp-progress">
+                              <div class="jp-seek-bar">
+                                <div class="jp-play-bar"></div>
+                              </div>
+                            </div>
+                            <div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+                            <div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+                            <div class="jp-controls-holder">
+                              <div class="jp-controls">
+                                <button class="jp-play" role="button" tabindex="0">play</button>
+                                <button class="jp-stop" role="button" tabindex="0">stop</button>
+                              </div>
+                              <div class="jp-volume-controls">
+                                <button class="jp-mute" role="button" tabindex="0">mute</button>
+                                <button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+                                <div class="jp-volume-bar">
+                                  <div class="jp-volume-bar-value"></div>
+                                </div>
+                              </div>
+                              <div class="jp-toggles">
+                                <button class="jp-repeat" role="button" tabindex="0">repeat</button>
+                                <button class="jp-full-screen" role="button" tabindex="0">full screen</button>
+                              </div>
+                            </div>
+                            <div class="jp-details">
+                              <div class="jp-title" aria-label="title">&nbsp;</div>
                             </div>
                           </div>
-                          <div class="jp-toggles">
-                            <button class="jp-repeat" role="button" tabindex="0">repeat</button>
-                            <button class="jp-full-screen" role="button" tabindex="0">full screen</button>
-                          </div>
                         </div>
-                        <div class="jp-details">
-                          <div class="jp-title" aria-label="title">&nbsp;</div>
+                        <div class="jp-no-solution">
+                          <span>Update Required</span>
+                          To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
                         </div>
                       </div>
                     </div>
-                    <div class="jp-no-solution">
-                      <span>Update Required</span>
-                      To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
-                    </div>
+
+
                   </div>
-                </div>
-
-
-              </div>
               <% end %>
-              <% end %>
+          <% end %>
 
 
 
-          <%= @content.content.html_safe  %>
+          <%= @content.content.html_safe %>
 
         </div>
 
@@ -96,7 +94,7 @@
 
         <a href="#" data-picker=".picker-1" class="link fa fa-pencil open-picker">&nbsp;评一下</a>
         <a href=<%= content_comments_path(@content) %> class="fa fa-comment"> &nbsp;<%= @commentcount %></a>
-        <a href="#" data-picker=".picker-2" class="link fa fa-share open-picker data-no-turbolink" = true ></a>
+        <a href="#" data-picker=".picker-2" class="link fa fa-share open-picker"></a>
       </div>
     </div>
 
@@ -112,17 +110,20 @@
       </div>
       <!-- Picker Modal Inner -->
       <div class="picker-modal-inner">
+        <!-- Picker content 分享 -->
+        <br>
+        <!-- Picker content 分享 -->
         <div class="bdsharebuttonbox">
-          <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友" style="margin-left: 9%" ></a>
+          <a href="#" class="bds_sqq" data-no-turbolink="true" data-cmd="sqq" title="分享到QQ好友" style="margin-left: 9%" ></a>
           <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间" style="margin-left: 9%"></a>
           <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信" style="margin-left: 9%"></a>
           <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博" style="margin-left: 9%"></a>
           <a href="#" class="bds_more" data-cmd="more" style="margin-left: 9%"></a>
         </div>
-        <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+        <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"32"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 
       </div>
-      </div>
+    </div>
 
 
 
@@ -137,69 +138,67 @@
       </div>
       <!-- Picker Modal Inner -->
       <div class="picker-modal-inner" style="margin-top: -30px;">
-         <% if session[:userid] !=nil %>
+        <% if session[:userid] !=nil %>
 
 
             <%= form_for([@content, @content.comments.build]) do |f| %>
-        <!-- Picker content -->
-        <div class="content-block">
-              <div class="list-block">
-                <ul>
-                  <li>
-                    <div class="item-content">
-                      <div class="item-inner">
-                        <div class="item-input">
-                          <%= session[:username] %>
+                <!-- Picker content -->
+                <div class="content-block">
+                  <div class="list-block">
+                    <ul>
+                      <li>
+                        <div class="item-content">
+                          <div class="item-inner">
+                            <div class="item-input">
+                              <%= session[:username] %>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  </li>
-              <li>
-                <div class="item-content">
-                  <div class="item-inner">
-                    <div class="item-input">
-                      <%= f.text_area :summary,id:'summary' %>
-                    </div>
-                  </div>
-                </div>
-              </li>
-                  <%= f.hidden_field :user_id,value:session[:userid],id:'user_id' %>
-                  <%= f.hidden_field :isshow,value:'0',id:'isshow' %>
-                  <input type="hidden" value=<%=@content.id %> id='content_id' >
-                  <li>
-                    <div class="item-content">
-                      <div class="item-inner">
-                        <div class="item-input">
-                          <%= f.button '发布',class:'button pull-right',id:'smt' %>
+                      </li>
+                      <li>
+                        <div class="item-content">
+                          <div class="item-inner">
+                            <div class="item-input">
+                              <%= f.text_area :summary,id:'summary' %>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  </li>
+                      </li>
+                      <%= f.hidden_field :user_id,value:session[:userid],id:'user_id' %>
+                      <%= f.hidden_field :isshow,value:'0',id:'isshow' %>
+                      <input type="hidden" value=<%=@content.id %> id='content_id' >
+                      <li>
+                        <div class="item-content">
+                          <div class="item-inner">
+                            <div class="item-input">
+                              <%= f.button '发布',class:'button pull-right',id:'smt' %>
+                                  </div>
+                                  </div>
+                                  </div>
+                                  </li>
 
-              </ul>
-              </div>
+                                  </ul>
+                                  </div>
 
-          <% end %>
-          <% else %>
-            <ul>
-              <li>
-                <br>
-              您还未登录，不能进行评论，请<a href ='logins'>登录</a>
-              </li>
-            </ul>
-          <% end %>
-
-        </div>
-      </div>
-    </div>
-
+                              <% end %>
+                              <% else %>
+                              <ul>
+                                <li>
+                                  <br>
+                                  您还未登录，不能进行评论，请<a href ='logins'>登录</a>
+                                </li>
+                              </ul>
+            <% end %>
+            </div>
+            </div>
+            </div>
 
 
-        </div>
-      </div>
-    </div>
+            </div>
+            </div>
+            </div>
 
 
-  </div>
-</div>
-</div>
+            </div>
+            </div>
+            </div>
