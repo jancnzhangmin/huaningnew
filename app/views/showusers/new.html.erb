@@ -14,7 +14,16 @@
     <!-- Scrollable page content-->
       <div class="page-content login-screen-content">
         <div class="login-screen-title">注册用户</div>
+
         <%= form_for(@showuser,:html => {:class=>'list-block'}) do |f| %>
+
+        <div class="list-block">
+
+
+
+        <%= form_for(@showuser) do |f| %>
+
+
             <ul>
               <li>
                 <div class="item-content">
@@ -67,7 +76,7 @@
               </div>
 
               </ul>
-
+   </div>
 
 
 
