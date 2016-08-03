@@ -25,6 +25,7 @@
               <td><%= comment.isshow %></td>
               <td><%= link_to '编辑', edit_remarks_path(comment) %></td>
               <td><%= link_to '删除', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
             </tr>
         <% end %>
         </tbody>
