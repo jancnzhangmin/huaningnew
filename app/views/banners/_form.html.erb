@@ -47,7 +47,8 @@
               <div class="col-sm-6 checkbox">
                 <input type="checkbox" value="1" id="isactive">
             </div>
-            </div>
+          </div>
+
           <div>
             <%= f.hidden_field :active, class:"form-control" ,id:"active"%>
           </div>
@@ -66,6 +67,8 @@
     <%= f.submit'确定',class: "btn btn-w-m btn-success mylink pull-right",'data-no-turbolink'=>true %>
   </div>
 <% end %>
+
+    <%= link_to '返回', banners_path %>
     </div>
   </div>
 

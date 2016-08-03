@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
-  resources :admins
+  get 'remarks/index'
 
+  get 'remarks/new'
+
+  get 'remarks/edit'
+
+  resources :admins
+  resources :remarks
   resources :adminlogins do
     resources :comments
   end
+  resources :users
 
   resources :banners
   resources :clas
