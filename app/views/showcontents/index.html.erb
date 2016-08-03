@@ -42,20 +42,8 @@
       </div>
       <!-- Scrollable page content-->
       <% content = @contents.last %>
-
-
-
-
 <input type="hidden" value= <%= content.id %> id="idindex">
-
-
-
-
-
-
       <% if @keyword=='news' %>
-
-
           <div class="buttons-row">
             <!-- 关联到第一个tab, 默认激活 -->
             <a href="#xinwen" class="tab-link active button">新闻</a>
@@ -66,18 +54,10 @@
       <div class="tabs">
         <div class="tab active" id="xinwen">
           <div class="list-block media-list">
-
-
-
-
-
-
             <ul>
-
               <% @contents.each do |f| %>
                   <li>
                     <a href=<%= showcontent_path(f) %> class="item-link item-content data-no-turbolink = true">
-
                     <div class="item-media">
                       <% if f.contentimedia_content_type !=nil %>
                           <% if f.contentimedia_content_type.include?"image" %>
@@ -99,14 +79,12 @@
             </ul>
           </div>
         </div>
-
         <div class="tab" id="lanmu">
           <div class="list-block media-list">
             <ul>
               <% @lanmus.each do |f| %>
                   <li>
                     <a href=<%= showcontent_path(f) %> class="item-link item-content data-no-turbolink = true">
-
                     <div class="item-media">
                       <% if f.contentimedia_content_type !=nil %>
                           <% if f.contentimedia_content_type.include?"image" %>
