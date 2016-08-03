@@ -24,7 +24,7 @@
         <td><%= banner.active %></td>
         <td><%= image_tag banner.banner.url %></td>
         <td><%= link_to '编辑', edit_banner_path(banner) %></td>
-        <td><%= link_to '删除', banner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '删除', banner, method: :delete, data: { confirm: '确定删除?' } %></td>
       </tr>
     <% end %>
   </tbody>

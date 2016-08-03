@@ -24,9 +24,22 @@ class CommentsController < ApplicationController
     @users = User.where(isshow:'1')
   end
 
+  def destroy
+    @remark.destroy
+    respond_to do |format|
+      format.html { redirect_to remarks_path, notice: '删除成功.' }
+      format.json { head :no_content }
+    end
+  end
+
+
   private
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def comment_params
+    # Never trust parameters from the scary internet, only allow the white list through#.
+  def set_remark
+    @remark = Comment.find(params[:id])
+  end
+
+  def comment_params
       params.require(:comment).permit(:summary, :content_id, :user_id, :isshow)
     end
 end

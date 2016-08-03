@@ -1,4 +1,4 @@
 class Remark < ActiveRecord::Base
-  belong_to :comment
+  belongs_to :comment
 
 end
