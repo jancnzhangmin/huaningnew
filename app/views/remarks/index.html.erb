@@ -25,6 +25,50 @@ var ischeck;
 
   });
 
+
+
+
+  $(document).ready(function(){
+      $('#remarks1').click(function(){
+          var flag = $('#remarks1').is(':checked');
+          if(flag)
+          {
+              $('#isshow').val('1');
+          }else
+          {
+              $('#isshow').val('0');
+          }
+      });
+  });
+
+
+
+  $(document).ready(function(){
+      $('#remarks2').click(function(){
+          var flag = $('#remarks2').is(':checked');
+          if(flag)
+          {
+              $('#isshow').val('2');
+          }else
+          {
+              $('#isshow').val('0');
+          }
+      });
+  });
+
+
+  $(document).ready(function(){
+      $('#remarks3').click(function(){
+          var flag = $('#remarks3').is(':checked');
+          if(flag)
+          {
+              $('#isshow').val('3');
+          }else
+          {
+              $('#isshow').val('0');
+          }
+      });
+  });
 </script>
 <%= render 'application/left' %>
 <%= render 'application/top' %>
@@ -51,11 +95,12 @@ var ischeck;
               <td><%= remark.summary %></td>
               <td><%= remark.user_id %></td>
               <td><%= remark.content_id %></td>
-              <td><%= remark.isshow %>
+              <td>
 
 
                 <% if remark.isshow == 0 %>
                     <input type="checkbox" checked id=<%= 'w' + remark.id.to_s %>>
+                    <label for="wei">未审核</label>
                 <% else %>
                     <input type="checkbox" id=<%= 'w' + remark.id.to_s %>>
                 <% end %>
@@ -63,12 +108,17 @@ var ischeck;
                     <input type="checkbox" checked id=<%= 'd' + remark.id.to_s %>>
                 <% else %>
                     <input type="checkbox" id=<%= 'd' + remark.id.to_s %>>
+                    <label for="ju">拒绝</label>
                 <% end %>
                 <% if remark.isshow == 2 %>
-                    <input type="checkbox" id=<%= 'y' + remark.id.to_s %>>
+                    <input type="checkbox" checked id=<%= 'y' + remark.id.to_s %>>
                 <% else %>
                     <input type="checkbox" id=<%= 'y' + remark.id.to_s %>>
+                    <label for="yi">已审核</label>
                 <% end %>
+
+
+
 
 
               </td>
@@ -76,21 +126,14 @@ var ischeck;
               <td><%= link_to '编辑',edit_remark_path(remark) %></td>
               <td><%= link_to '删除', remark_path(remark), method: :delete, data: { confirm: '确定删除?' } %></td>
 
-              <td><%= comment.summary %></td>
-              <td><%= comment.user_id %></td>
-              <td><%= comment.content_id %></td>
-              <td><%= comment.isshow %></td>
-              <td><%= link_to '编辑', edit_remarks_path(comment) %></td>
-              <td><%= link_to '删除', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
             </tr>
         <% end %>
         </tbody>
       </table>
 
 
-          </div>
-          </div>
-          </div>
+      </div>
+    </div>
+  </div>
 
 
