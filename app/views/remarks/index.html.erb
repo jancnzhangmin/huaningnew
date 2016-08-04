@@ -1,3 +1,31 @@
+<script>
+
+  $(document).ready(function(){
+var ischeck;
+      $("input[type='checkbox']").click(function(){
+          ischeck = this.id;
+
+          $.ajax({
+
+              type: 'get',
+
+              url: '/remarks/change?c='+ischeck ,
+
+              data: '' ,
+
+              success: '' ,
+
+              dataType: ''
+
+          });
+
+
+
+      });
+
+  });
+
+</script>
 <%= render 'application/left' %>
 <%= render 'application/top' %>
 <div class="col-lg-12">
@@ -17,8 +45,37 @@
         </thead>
 
         <tbody>
-        <% @comments.each do |comment| %>
+        <% @remarks.each do |remark| %>
             <tr>
+
+              <td><%= remark.summary %></td>
+              <td><%= remark.user_id %></td>
+              <td><%= remark.content_id %></td>
+              <td><%= remark.isshow %>
+
+
+                <% if remark.isshow == 0 %>
+                    <input type="checkbox" checked id=<%= 'w' + remark.id.to_s %>>
+                <% else %>
+                    <input type="checkbox" id=<%= 'w' + remark.id.to_s %>>
+                <% end %>
+                <% if remark.isshow == 1 %>
+                    <input type="checkbox" checked id=<%= 'd' + remark.id.to_s %>>
+                <% else %>
+                    <input type="checkbox" id=<%= 'd' + remark.id.to_s %>>
+                <% end %>
+                <% if remark.isshow == 2 %>
+                    <input type="checkbox" id=<%= 'y' + remark.id.to_s %>>
+                <% else %>
+                    <input type="checkbox" id=<%= 'y' + remark.id.to_s %>>
+                <% end %>
+
+
+              </td>
+
+              <td><%= link_to '编辑',edit_remark_path(remark) %></td>
+              <td><%= link_to '删除', remark_path(remark), method: :delete, data: { confirm: '确定删除?' } %></td>
+
               <td><%= comment.summary %></td>
               <td><%= comment.user_id %></td>
               <td><%= comment.content_id %></td>
@@ -31,9 +88,7 @@
         </tbody>
       </table>
 
-      <br>
 
-      <%= link_to '新建', new_remark_path ,class: "btn btn-w-m btn-success mylink pull-right",'data-no-turbolink'=>true %>
           </div>
           </div>
           </div>

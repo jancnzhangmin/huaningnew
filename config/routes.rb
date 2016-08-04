@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   get 'remarks/edit'
 
   resources :admins
-  resources :remarks
+  resources :remarks do
+    get 'change'
+  end
+  resources :comments
   resources :adminlogins do
     resources :comments
   end
