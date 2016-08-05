@@ -22,6 +22,7 @@
 
 
 
+
               <div class="list-block media-list">
                 <ul>
                   <li>
@@ -29,15 +30,25 @@
                       <div class="item-inner">
                         <div class="item-title">
                           <div class="item-title">
+                            <% @comment.each do |f| %>
+                                <% if f.isshow == 2 %>
                             <% @users.each do |user| %>
                                 <% if user.id == comment.user_id %>
                                     <%= user.name %>
                                     <% break %>
                                 <% end %>
                             <% end %>
+                                <% end %>
+                            <% end %>
                           </div>
                         </div>
-                        <div class="item-text">Lorem ipsum dolor sit amet...</div>
+                        <div class="item-text">
+                          <% @comment.each do |f| %>
+                          <% if f.isshow == 2 %>
+                          <%= f.summary %>
+                              <% end %>
+                          <% end %>
+                        </div>
                       </div>
                     </a>
                   </li>

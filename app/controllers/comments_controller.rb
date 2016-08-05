@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
   def index
     @content = Content.find(params[:content_id])
     @users = User.all
+    @comment = Comment.all
   end
 
   def create
@@ -21,7 +22,7 @@ class CommentsController < ApplicationController
 
   def show
     @content = Content.find(params[:content_id])
-    @users = User.where(isshow:'1')
+    @users = User.where(isshow:'2')
   end
 
   def destroy

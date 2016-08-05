@@ -1,74 +1,45 @@
 <script>
+    $(document).ready(function(){
+        var ischeck;
+        $("input[type='checkbox']").click(function(){
+            ischeck = this.id;
+            isshow = ischeck
+            $.ajax({
+                type: 'get',
+                url: '/remarks/change?c='+ischeck ,
+                data: '' ,
+                success: '' ,
+                dataType: ''
+            });
 
-  $(document).ready(function(){
-var ischeck;
-      $("input[type='checkbox']").click(function(){
-          ischeck = this.id;
-
-          $.ajax({
-
-              type: 'get',
-
-              url: '/remarks/change?c='+ischeck ,
-
-              data: '' ,
-
-              success: '' ,
-
-              dataType: ''
-
-          });
+var myid = ischeck.substring(1);
 
 
-
-      });
-
-  });
-
+            $('#w'+myid).attr("checked",false);
+            $('#d'+myid).attr("checked",false);
+            $('#y'+myid).attr("checked",false);
 
 
-
-  $(document).ready(function(){
-      $('#remarks1').click(function(){
-          var flag = $('#remarks1').is(':checked');
-          if(flag)
-          {
-              $('#isshow').val('1');
-          }else
-          {
-              $('#isshow').val('0');
-          }
-      });
-  });
+            if(ischeck.substring(0,1)=='w')
+            {
+                $('#w'+myid).prop("checked",true);
+            }
+            if(ischeck.substring(0,1)=='d')
+            {
+                $('#d'+myid).prop("checked",true);
+            }
+            if(ischeck.substring(0,1)=='y')
+            {
+                $('#y'+myid).prop("checked",true);
+            }
 
 
 
-  $(document).ready(function(){
-      $('#remarks2').click(function(){
-          var flag = $('#remarks2').is(':checked');
-          if(flag)
-          {
-              $('#isshow').val('2');
-          }else
-          {
-              $('#isshow').val('0');
-          }
-      });
-  });
 
 
-  $(document).ready(function(){
-      $('#remarks3').click(function(){
-          var flag = $('#remarks3').is(':checked');
-          if(flag)
-          {
-              $('#isshow').val('3');
-          }else
-          {
-              $('#isshow').val('0');
-          }
-      });
-  });
+        });
+    });
+
 </script>
 <%= render 'application/left' %>
 <%= render 'application/top' %>
@@ -99,31 +70,26 @@ var ischeck;
 
 
                 <% if remark.isshow == 0 %>
-                    <input type="checkbox" checked id=<%= 'w' + remark.id.to_s %>>
-                    <label for="wei">未审核</label>
+                    <input type="checkbox" name="check" checked id=<%= 'w' + remark.id.to_s %>>
                 <% else %>
                     <input type="checkbox" id=<%= 'w' + remark.id.to_s %>>
                 <% end %>
+                <label>未审核</label>
                 <% if remark.isshow == 1 %>
                     <input type="checkbox" checked id=<%= 'd' + remark.id.to_s %>>
                 <% else %>
                     <input type="checkbox" id=<%= 'd' + remark.id.to_s %>>
-                    <label for="ju">拒绝</label>
                 <% end %>
+                <label>未通过</label>
                 <% if remark.isshow == 2 %>
                     <input type="checkbox" checked id=<%= 'y' + remark.id.to_s %>>
                 <% else %>
                     <input type="checkbox" id=<%= 'y' + remark.id.to_s %>>
-                    <label for="yi">已审核</label>
                 <% end %>
-
-
-
-
+                <label>通过</label>
 
               </td>
 
-              <td><%= link_to '编辑',edit_remark_path(remark) %></td>
               <td><%= link_to '删除', remark_path(remark), method: :delete, data: { confirm: '确定删除?' } %></td>
 
             </tr>
@@ -132,8 +98,6 @@ var ischeck;
       </table>
 
 
-      </div>
     </div>
   </div>
-
-
+</div>

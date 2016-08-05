@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   resources :admins
   resources :remarks do
+    collection do
     get 'change'
+    end
   end
   resources :comments
   resources :adminlogins do

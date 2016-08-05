@@ -4,6 +4,10 @@ class RemarksController < ApplicationController
 
   def index
     @remarks= Comment.all
+    @isshow =  params[:isshow]
+    if params[:isshow]= 2
+
+    end
   end
 
   def new
@@ -50,9 +54,35 @@ class RemarksController < ApplicationController
   end
 
   def change
-    c=params[:c].delete 'w','d','y'
-    comment = Comment.find(2)
-    comment.update(isshow:'3')
+    c=params[:c].to_s
+    cc = c.clone
+    c[0]=""
+    comment = Comment.find(c)
+
+
+
+
+
+
+
+
+    if cc[0] == 'w'
+      comment.isshow=0
+    elsif cc[0] == 'd'
+      comment.isshow=1
+    else
+      comment.isshow=2
+    end
+    comment.save
+    #debugger
+
+
+
+
+
+
+    #comment.update(isshow:'3')
+
   end
 
 
