@@ -92,7 +92,7 @@ $(document).ready(function(){
                         itemHTML+='</div>'+
                             '<div class="item-inner">'+
                             '<div class="item-title-row">'+
-                            '<div class="item-title">'+item.title+'</div>'+
+                            '<div class="item-title">'+item.id.title+'</div>'+
                             '</div>'+
                             '<div class="item-text">'+item.summary+'</div>'+
                             '</div>'+

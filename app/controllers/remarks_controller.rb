@@ -58,14 +58,6 @@ class RemarksController < ApplicationController
     cc = c.clone
     c[0]=""
     comment = Comment.find(c)
-
-
-
-
-
-
-
-
     if cc[0] == 'w'
       comment.isshow=0
     elsif cc[0] == 'd'
@@ -74,15 +66,6 @@ class RemarksController < ApplicationController
       comment.isshow=2
     end
     comment.save
-    #debugger
-
-
-
-
-
-
-    #comment.update(isshow:'3')
-
   end
 
 

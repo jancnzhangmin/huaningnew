@@ -1,4 +1,3 @@
-
 <div class="navbar">
   <div class="navbar-inner">
     <div class="left"><a href="#" data-no-turbolink = "true" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
@@ -21,7 +20,6 @@
             margin-bottom: 10px;
             text-align: center;
         }
-
     </style>
 
 
@@ -31,7 +29,7 @@
 
 
 
-<input type="hidden" value=<%=@keyword %>  id='kwd'>
+    <input type="hidden" value=<%=@keyword %>  id='kwd'>
 
 
     <div class="page-content pull-to-refresh-content infinite-scroll">
@@ -42,7 +40,7 @@
       </div>
       <!-- Scrollable page content-->
       <% content = @contents.last %>
-     <input type="hidden" value= <%= content.id %> id="idindex">
+      <input type="hidden" value= <%= content.id %> id="idindex">
       <% if @keyword=='news' %>
           <div class="buttons-row">
             <!-- 关联到第一个tab, 默认激活 -->
@@ -51,98 +49,99 @@
             <a href="#lanmu" class="tab-link button">栏目</a>
             <!-- 关联到第三个tab -->
           </div>
-      <div class="tabs">
-        <div class="tab active" id="xinwen">
-          <div class="list-block media-list">
-            <ul>
-              <% @contents.each do |f| %>
-                  <li>
-                    <a href=<%= showcontent_path(f) %> class="item-link item-content data-no-turbolink = true">
-                    <div class="item-media">
-                      <% if f.contentimedia_content_type !=nil %>
-                          <% if f.contentimedia_content_type.include?"image" %>
-                              <%=image_tag f.contentimedia.url,width: '70px' %>
-                          <% else %>
-                              <%=image_tag 'playerlogo.png',width: '70px' %>
-                          <% end %>
-                      <% end %>
-                    </div>
-                    <div class="item-inner">
-                      <div class="item-title-row">
-                        <div class="item-title"><%= f.title %></div>
-                      </div>
-                      <div class="item-text"><%= f.summary %></div>
-                    </div>
-                    </a>
-                  </li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-        <div class="tab" id="lanmu">
-          <div class="list-block media-list">
-            <ul>
-              <% @lanmus.each do |f| %>
-                  <li>
-                    <a href=<%= showcontent_path(f) %> class="item-link item-content data-no-turbolink = true">
-                    <div class="item-media">
-                      <% if f.contentimedia_content_type !=nil %>
-                          <% if f.contentimedia_content_type.include?"image" %>
-                              <%=image_tag f.contentimedia.url,width: '70px' %>
-                          <% else %>
-                              <%=image_tag 'playerlogo.png',width: '70px' %>
-                          <% end %>
-                      <% end %>
-                    </div>
-                    <div class="item-inner">
-                      <div class="item-title-row">
-                        <div class="item-title"><%= f.title %></div>
-                      </div>
-                      <div class="item-text"><%= f.summary %></div>
-                    </div>
-                    </a>
-                  </li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-          <% else %>
-
-
-
-
-          <div class="list-block media-list">
-            <ul>
-
-              <% @contents.each do |f| %>
-                  <li>
-                    <a href=<%= showcontent_path(f) %> class="item-link item-content data-no-turbolink = true">
-
-                    <div class="item-media">
-                      <% if f.contentimedia_content_type !=nil %>
-                          <% if f.contentimedia_content_type.include?"image" %>
-                          <%=image_tag f.contentimedia.url,width: '70px' %>
-                      <% else %>
-                          <%=image_tag 'playerlogo.png',width: '70px' %>
-                      <% end %>
-                          <% end %>
-                    </div>
-                    <div class="item-inner">
-                      <div class="item-title-row">
-                        <div class="item-title"><%= f.title %></div>
-                      </div>
-                      <div class="item-text"><%= f.summary %></div>
-                    </div>
-                    </a>
-                  </li>
+          <div class="tabs">
+            <div class="tab active" id="xinwen">
+              <div class="list-block media-list">
+                <ul>
+                  <% @contents.each do |f| %>
+                      <li>
+                        <a href=<%= showcontent_path(f) %> class="item-link item-content data-no-turbolink = true">
+                          <div class="item-media">
+                            <% if f.contentimedia_content_type !=nil %>
+                                <% if f.contentimedia_content_type.include?"image" %>
+                                    <%=image_tag f.contentimedia.url,width: '70px' %>
+                                <% else %>
+                                    <%=image_tag 'playerlogo.png',width: '70px' %>
+                                <% end %>
+                            <% end %>
+                          </div>
+                          <div class="item-inner">
+                            <div class="item-title-row">
+                              <div class="item-title"><%= f.title %></div>
+                            </div>
+                            <div class="item-text"><%= f.summary %></div>
+                          </div>
+                        </a>
+                      </li>
                   <% end %>
-            </ul>
+                </ul>
+              </div>
+            </div>
+
+
+
+            <div class="tab" id="lanmu">
+              <div class="list-block media-list">
+                <ul>
+                  <% @lanmus.each do |f| %>
+                      <li>
+                        <a href=<%= showcontent_path(f) %> class="item-link item-content data-no-turbolink = true">
+                          <div class="item-media">
+                            <% if f.contentimedia_content_type !=nil %>
+                                <% if f.contentimedia_content_type.include?"image" %>
+                                    <%=image_tag f.contentimedia.url,width: '70px' %>
+                                <% else %>
+                                    <%=image_tag 'playerlogo.png',width: '70px' %>
+                                <% end %>
+                            <% end %>
+                          </div>
+                          <div class="item-inner">
+                            <div class="item-title-row">
+                              <div class="item-title"><%=f.title %></div>
+                            </div>
+                            <div class="item-text"><%=f.summary %></div>
+                          </div>
+                        </a>
+                      </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
           </div>
 
+      <% else %>
 
-<% end %>
+
+
+
+          <div class="list-block media-list">
+            <ul>
+
+              <% @contents.each do |f| %>
+                  <li>
+                    <a href=<%= showcontent_path(f) %> class="item-link item-content data-no-turbolink = true">
+
+                      <div class="item-media">
+                        <% if f.contentimedia_content_type !=nil %>
+                            <% if f.contentimedia_content_type.include?"image" %>
+                                <%=image_tag f.contentimedia.url,width: '70px' %>
+                            <% else %>
+                                <%=image_tag 'playerlogo.png',width: '70px' %>
+                            <% end %>
+                        <% end %>
+                      </div>
+                      <div class="item-inner">
+                        <div class="item-title-row">
+                          <div class="item-title"><%= f.title %></div>
+                        </div>
+                        <div class="item-text"><%= f.summary %></div>
+                      </div>
+                    </a>
+                  </li>
+              <% end %>
+
+
+      <% end %>
 
 
 

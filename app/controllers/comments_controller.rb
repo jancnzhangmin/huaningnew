@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   def index
     @content = Content.find(params[:content_id])
     @users = User.all
-    @comment = Comment.all
+    @comment = Comment.where(isshow:'2')
   end
 
   def create
