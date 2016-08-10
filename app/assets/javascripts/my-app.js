@@ -674,7 +674,6 @@ myApp.onPageInit('login',function(page){
                 success: function (data) {
                     var flag=true;
                     $.each(data, function(i, item) {
-
                       if(item) {
                           flag =false;
                           mainView.router.refreshPreviousPage();
