@@ -6,17 +6,17 @@ class LoginsController < ApplicationController
 
   def getuser
     if params[:login] && params[:password]
-      user = User.find_by_login(params[:login])
+      user = User.find_by_tel(params[:login])
       if user && user.authenticate(params[:password])
         session[:userid] = user.id
         session[:username]=user.name
         session[:login]=user.login
-        render json :user
+        render :json=>user
       else
-        render json:nil
+        render :json=>nil
       end
     else
-      render json:nil
+      render :json=>nil
     end
   end
 
