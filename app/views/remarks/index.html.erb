@@ -63,8 +63,7 @@ var myid = ischeck.substring(1);
               <td><%= remark.user_id %></td>
               <td><%= remark.content_id %></td>
               <td>
-
-
+                
                 <% if remark.isshow == 0 %>
                     <input type="checkbox" name="check" checked id=<%= 'w' + remark.id.to_s %>>
                 <% else %>

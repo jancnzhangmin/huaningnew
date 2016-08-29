@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
   get 'remarks/index'
 
-  get 'remarks/new'
-
-  get 'remarks/edit'
-
   resources :admins
   resources :remarks do
     collection do

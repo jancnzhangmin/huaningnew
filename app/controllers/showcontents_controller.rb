@@ -123,4 +123,7 @@ render :json => @contents
     @commentcount = @content.comments.count
   end
 
+
+
+
 end

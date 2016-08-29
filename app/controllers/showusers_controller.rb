@@ -72,4 +72,3 @@ class ShowusersController < ApplicationController
     params.require(:user).permit(:name, :password_digest, :tel, :vcode)
   end
 end
-

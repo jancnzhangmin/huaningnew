@@ -1,5 +1,89 @@
-<h1>New User</h1>
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="left"><a href="/#!//" data-no-turbolink = "true" class="back link" > <i class="icon icon-back"></i><span></span></a></div>
+    <div class="center sliding"></div>
 
-<%= render 'form' %>
+  </div>
+</div>
 
-<%= link_to 'Back', users_path %>
+<div class="pages">
+  <!-- Page, data-page contains page name-->
+  <div data-page="showusers" class="page">
+    <!-- Scrollable page content-->
+    <div class="page-content login-screen-content">
+
+      <div class="list-block">
+
+        <%= form_for(@user) do |f| %>
+            <% if @user.errors.any? %>
+                <div id="error_explanation">
+                  <h3> 电话号码已被注册</h3>
+                </div>
+            <% end %>
+
+
+            <ul>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title label">姓名</div>
+                    <div class="item-input">
+                      <%= f.text_field :name,placeholder:"姓名" %>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title label">手机电话</div>
+                    <div class="item-input">
+                      <%= f.text_field :tel, id:"log",placeholder:"手机电话",id:'phone' %>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title label">密码</div>
+                    <div class="item-input">
+                      <%= f.password_field :password,placeholder:"密码" %>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title label">确认密码</div>
+                    <div class="item-input">
+                      <%= f.password_field :password_confirmation,placeholder:"确认密码" %>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+
+
+              <div class="content-block">
+                <%= f.submit '确定',class:'button back',id:'smt' %>
+                    </div>
+
+                    </ul>
+                    </div>
+
+
+
+                <% end %>
+                </div>
+
+                </div>
+                </div>
+
+
+

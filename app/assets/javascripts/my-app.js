@@ -2,9 +2,12 @@
 var myApp = new Framework7(
     {
         pushState: true,
-        scrollTopOnNavbarClick:true
+        scrollTopOnNavbarClick:true,
+        precompileTemplates: true,
+        template7Pages: true,
 
-    }
+        }
+    
 );
 
 // Export selectors engine
@@ -580,9 +583,9 @@ return false;
         // Check first, if we already have opened picker
         if ($$('.picker-modal.modal-in').length > 0) {
             myApp.closeModal('.picker-modal.modal-in');
-        }
+                  }
         myApp.pickerModal(
-            '<div class="picker-modal" style="background-color: #ffffff;">' +
+        '<div class="picker-modal" style="background-color: #ffffff;">' +
             '<div class="toolbar">' +
             '<div class="toolbar-inner">' +
             '<div class="left">' +
@@ -610,9 +613,7 @@ return false;
 
     <!-- JiaThis Button BEGIN -->
 
-
-    mainView.router.refreshPage();
-
+    window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"32"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
 
     $(document).ready(function(){
     $("#jquery_jplayer_1").jPlayer({
