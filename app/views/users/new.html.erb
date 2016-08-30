@@ -1,7 +1,11 @@
 <div class="navbar">
   <div class="navbar-inner">
-    <div class="left"><a href="/#!//" data-no-turbolink = "true" class="back link" > <i class="icon icon-back"></i><span></span></a></div>
+    <div class="left"><a href="/#!//showusers/new" data-no-turbolink = "true" class="back link" > <i class="icon icon-back"></i><span></span></a></div>
     <div class="center sliding"></div>
+    <div class="right">
+
+      <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+    </div>
 
   </div>
 </div>
@@ -14,12 +18,8 @@
 
       <div class="list-block">
 
-        <%= form_for(@user) do |f| %>
-            <% if @user.errors.any? %>
-                <div id="error_explanation">
-                  <h3> 电话号码已被注册</h3>
-                </div>
-            <% end %>
+        <%= form_for(@user,:html => {:class=>'list-block'}) do |f| %>
+            <p style="color: #cc0000">电话号码或用户名已被注册</p>
 
 
             <ul>

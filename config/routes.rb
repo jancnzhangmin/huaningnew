@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
   resources :users
 
+
   resources :banners
   resources :clas
   resources :contents do
