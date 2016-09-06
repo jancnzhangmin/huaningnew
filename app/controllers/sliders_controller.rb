@@ -2,6 +2,7 @@ class SlidersController < ApplicationController
   def index
     @indexcontents = Content.where(isnew: '0').order('updated_at desc').limit(10)
     @banners = Banner.all
+    @adverts = Advert.all
   end
 
   def search

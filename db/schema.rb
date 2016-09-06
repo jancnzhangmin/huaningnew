@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160803034710) do
+ActiveRecord::Schema.define(version: 20160906015326) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name",            limit: 255
@@ -21,6 +21,18 @@ ActiveRecord::Schema.define(version: 20160803034710) do
     t.integer  "status",          limit: 4
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+  end
+
+  create_table "adverts", force: :cascade do |t|
+    t.string   "title",               limit: 255
+    t.string   "link",                limit: 255
+    t.integer  "active",              limit: 4
+    t.string   "advert_file_name",    limit: 255
+    t.string   "advert_content_type", limit: 255
+    t.integer  "advert_file_size",    limit: 4
+    t.datetime "advert_updated_at"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "banners", force: :cascade do |t|
@@ -66,11 +78,6 @@ ActiveRecord::Schema.define(version: 20160803034710) do
     t.string   "contentimedia_content_type", limit: 255
     t.integer  "contentimedia_file_size",    limit: 4
     t.datetime "contentimedia_updated_at"
-  end
-
-  create_table "remarks", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

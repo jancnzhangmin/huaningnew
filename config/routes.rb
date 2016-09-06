@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  resources :adverts
   get 'remarks/index'
 
   resources :admins
