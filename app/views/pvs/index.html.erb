@@ -1,0 +1,144 @@
+<%= render 'application/left' %>
+<%= render 'application/top' %>
+<html>
+<head>
+  <!-- 引入 echarts.js -->
+
+</head>
+<body>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main" style="width: 600px;height:400px;">
+
+
+
+</div>
+
+</body>
+<script type="text/javascript">
+
+    var yvalue = new Array();
+    var xvalue = new Array();
+    var pvvalue = new Array();
+    var pvmax;
+    for(var i=0;i<31;i++)
+    {
+        xvalue[i]=i+1;
+    }
+
+
+
+
+
+var pvsum=0;
+    $.ajax({
+        type:'get',
+        dataType:'json',
+        url:'/pvs/getpv',
+        success:function(data) {
+
+            var c=Date.parse('2016-2-2').getDate;
+            alert(c);
+
+            for(var i=0;i<31;i++) {
+try {
+    if (Date.parse(data[i].pvdate).getDate < i) {
+        pvvalue[i] = 0;
+    } else if (Date.parse(data[i].pvdate).getDate == i) {
+        pvvalue[i] = data[i].pv;
+    }
+}catch(e){
+    pvvalue[i]=0;
+}
+
+            }
+
+
+        },
+        error : function() {
+        }
+    });
+
+    pvmax=Math.max.apply(null, pvvalue);
+
+
+
+
+
+    $(document).ready(function() {
+
+
+
+
+
+
+
+
+        $.getJSON('ajax/test.json', function (data) {
+            var items = [];
+
+            $.each(data, function (pvdate, pv) {
+                items.push('<li id="' + pvdate + '">' + pv + '</li>');
+            });
+
+        });
+
+        $(doucment).write("<ul><li>pvdate</li><li> pv </li></ul>")
+        $.parseJSON(data).each(function(i){
+            doucment.write("<ul><li>"+data[pvdate].a+"</li><li> data[pv].b] </li></ul>")
+        })
+    });
+
+
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+    option = {
+        title: {
+            text: '访问统计',
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data:['最高访问量']
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                dataZoom: {
+                    yAxisIndex: 'none'
+                },
+                dataView: {readOnly: false},
+                magicType: {type: ['line', 'bar']},
+                restore: {},
+                saveAsImage: {}
+            }
+        },
+        xAxis:  {
+            type: 'category',
+            boundaryGap: false,
+            data: xvalue
+        },
+        yAxis: {
+            type: 'value',
+            axisLabel: {
+                formatter: '{value}'
+            }
+        },
+        series: [
+            {
+                name:'最高访问量',
+                type:'line',
+                data:pvvalue
+            }
+
+        ]
+    };
+
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+
+</html>

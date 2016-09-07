@@ -3,6 +3,24 @@ class SlidersController < ApplicationController
     @indexcontents = Content.where(isnew: '0').order('updated_at desc').limit(10)
     @banners = Banner.all
     @adverts = Advert.all
+    visit = Visit.last
+    if visit
+
+
+      if visit.pvdate.to_datetime.strftime("%Y-%m-%d") == Time.now.strftime("%Y-%m-%d")
+        sum = visit.pv
+        visit.pv = sum.to_i + 1
+        visit.save
+      else
+        Visit.create(pvdate:Time.now,pv:'1')
+
+      end
+
+
+    else
+      Visit.create(pvdate:Time.now,pv:'1')
+    end
+
   end
 
   def search

@@ -115,6 +115,7 @@ render :json => @contents
     visit = @content.visit.to_i
     visit =visit + 1
     @content.visit=visit
+
      @content.save
 
 

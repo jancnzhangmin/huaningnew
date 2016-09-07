@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :pvs do
+    collection do
+      get 'getpv'
+    end
+  end
   resources :adverts
   get 'remarks/index'
 

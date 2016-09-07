@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pvdate: 2016-09-07 09:11:30
+  pv: 1
+
+two:
+  pvdate: 2016-09-07 09:11:30
+  pv: 1

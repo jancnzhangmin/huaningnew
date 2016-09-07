@@ -1,5 +1,5 @@
 class BannersController < ApplicationController
-  layout 'admin'
+ layout 'admin'
   before_action :set_banner, only: [:show, :edit, :update, :destroy]
 
   # GET /banners
