@@ -4,10 +4,7 @@ class RemarksController < ApplicationController
 
   def index
     @remarks= Comment.all
-    @isshow =  params[:isshow]
-    if params[:isshow]= 2
 
-    end
   end
 
   def new

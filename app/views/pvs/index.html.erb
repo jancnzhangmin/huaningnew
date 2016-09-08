@@ -7,7 +7,7 @@
 </head>
 <body>
 <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-<div id="main" style="width: 600px;height:400px;">
+<div id="main" class="col-md-12" style="height:600px;">
 
 
 
@@ -20,46 +20,52 @@
     var xvalue = new Array();
     var pvvalue = new Array();
     var pvmax;
-    for(var i=0;i<31;i++)
+
+
+
+var lastday=28;
+var nowdate = new Date(Date.now());
+    var lastdate = nowdate.getFullYear()+'-'+nowdate.getMonth()+'-29';
+    if(lastdate)
+    {
+        lastday=29;
+    }
+    lastdate = nowdate.getFullYear()+'-'+nowdate.getMonth()+'-30';
+    if(lastdate)
+    {
+        lastday=30;
+    }
+    lastdate = nowdate.getFullYear()+'-'+nowdate.getMonth()+'-31';
+    if(lastdate)
+    {
+        lastday=31;
+    }
+    for(var i=0;i<lastday;i++)
     {
         xvalue[i]=i+1;
+        pvvalue[i]=0;
     }
 
 
 
-
-
-var pvsum=0;
     $.ajax({
         type:'get',
         dataType:'json',
         url:'/pvs/getpv',
         success:function(data) {
+            $(data).each(function(index,item){
+                var tdate=new Date(Date.parse(item.pvdate));
+                var tday = tdate.getDate();
+                pvvalue[tday]=item.pv;
+            });
 
-            var c=Date.parse('2016-2-2').getDate;
-            alert(c);
-
-            for(var i=0;i<31;i++) {
-try {
-    if (Date.parse(data[i].pvdate).getDate < i) {
-        pvvalue[i] = 0;
-    } else if (Date.parse(data[i].pvdate).getDate == i) {
-        pvvalue[i] = data[i].pv;
-    }
-}catch(e){
-    pvvalue[i]=0;
-}
-
-            }
-
-
+            myChart.setOption(option);
         },
         error : function() {
         }
     });
 
     pvmax=Math.max.apply(null, pvvalue);
-
 
 
 
@@ -101,7 +107,7 @@ try {
             trigger: 'axis'
         },
         legend: {
-            data:['最高访问量']
+            data:['访问量']
         },
         toolbox: {
             show: true,
@@ -128,7 +134,7 @@ try {
         },
         series: [
             {
-                name:'最高访问量',
+                name:'访问量',
                 type:'line',
                 data:pvvalue
             }
@@ -138,7 +144,7 @@ try {
 
 
     // 使用刚指定的配置项和数据显示图表。
-    myChart.setOption(option);
+
 </script>
 
 </html>

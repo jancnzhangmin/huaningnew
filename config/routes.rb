@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :articles do
+    collection do
+      get 'change'
+    end
+  end
   resources :pvs do
     collection do
       get 'getpv'
