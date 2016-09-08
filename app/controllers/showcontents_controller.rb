@@ -2,6 +2,7 @@ class ShowcontentsController < ApplicationController
   def index
       @keyword = params[:keyword]
       @contents = Content.all
+
       if params[:keyword] == 'express'
         @title = '新闻速递'
       end
@@ -37,11 +38,11 @@ class ShowcontentsController < ApplicationController
       end
 
       if @keyword
-        @contents = Content.where("keyword ='"+ @keyword +"'  AND isnew = '0'").order('updated_at desc').limit(10)
+        @contents = Content.where("keyword ='"+ @keyword +"'  AND isnew = '0' AND via='2' " ).order('updated_at desc').limit(10)
       end
     @lanmus=Content.all
     if params[:keyword] == 'news'
-      @lanmus = Content.where("keyword = 'lanmu'  AND isnew = '0'").order('updated_at desc').limit(10)
+      @lanmus = Content.where("keyword = 'lanmu'  AND isnew = '0' AND via='2' ").order('updated_at desc').limit(10)
     end
   end
 

@@ -7,10 +7,6 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Content.all
-    @via =  params[:via]
-    if params[:via]= 2
-
-    end
   end
 
   # GET /articles/1
@@ -72,15 +68,15 @@ class ArticlesController < ApplicationController
     c=params[:c].to_s
     cc = c.clone
     c[0]=""
-    comment = Content.find(c)
+    h = Content.find(c)
     if cc[0] == 'w'
-      comment.via=0
+      h.via=0
     elsif cc[0] == 'd'
-      comment.via=1
+      h.via=1
     else
-      comment.isshow=2
+      h.via=2
     end
-    comment.save
+    h.save
   end
 
   private

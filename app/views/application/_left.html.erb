@@ -106,10 +106,13 @@
 
 
         <li>
-          <a href="#"><i class="fa fa-user"></i><span class="nav-label">评论</span><span class="fa arrow"></span></a>
+          <a href="#"><i class="fa fa-user"></i><span class="nav-label">审核</span><span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
             <li>
               <%= link_to "评论审核", remarks_path, 'data-no-turbolink'=> true %>
+            </li>
+            <li>
+              <%= link_to "文章审核", articles_path, 'data-no-turbolink'=> true %>
             </li>
           </ul>
         </li>
@@ -124,10 +127,19 @@
         </li>
 
         <li>
-          <a href="#"><i class="fa fa-user"></i><span class="nav-label">访问</span><span class="fa arrow"></span></a>
+          <a href="#"><i class="fa fa-user"></i><span class="nav-label">访问统计</span><span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
             <li>
               <%= link_to "访问", pvs_path, 'data-no-turbolink'=> true %>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#"><i class="fa fa-user"></i><span class="nav-label">用户管理</span><span class="fa arrow"></span></a>
+          <ul class="nav nav-second-level">
+            <li>
+              <%= link_to "用户", users_path, 'data-no-turbolink'=> true %>
             </li>
           </ul>
         </li>

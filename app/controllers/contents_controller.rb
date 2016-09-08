@@ -9,10 +9,10 @@ class ContentsController < ApplicationController
     @keyword = params[:keyword]
     @contents = Content.all
 
+
     if params[:keyword] == 'express'
       @title = '新闻速递'
     end
-
     if params[:keyword] == 'news'
       @title = '华宁新闻_新闻'
     end
@@ -47,10 +47,11 @@ class ContentsController < ApplicationController
       @title = '旅游方向标'
     end
 
+
+
     if @keyword
       @contents = Content.where("keyword ='"+ @keyword +"'  AND isnew = '0'").order('updated_at desc')
     end
-
   end
 
   # GET /contents/1

@@ -26,6 +26,7 @@
             <div class="col-auto" align="right"><%= @content.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></div>
 
           </div>
+
           <% if @content.contentimedia_content_type != nil %>
               <% if  @content.contentimedia_content_type.include?"video" %>
                   <input type="hidden" id="mp4url" value=<%=@content.contentimedia.url %>>
@@ -84,6 +85,7 @@
 
 
           <%= @content.content.html_safe %>
+          <div class="col-auto" align="left"><p style="color: #1a2d41">&nbsp;阅读<%= @content.visit %></p></div>
 
         </div>
 

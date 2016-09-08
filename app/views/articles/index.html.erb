@@ -3,10 +3,10 @@
         var ischeck;
         $("input[type='checkbox']").click(function(){
             ischeck = this.id;
-            isshow = ischeck
+            via = ischeck
             $.ajax({
                 type: 'get',
-                url: '/remarks/change?c='+ischeck ,
+                url: '/articles/change?c='+ischeck ,
                 data: '' ,
                 success: '' ,
                 dataType: ''
@@ -54,8 +54,8 @@
         <thead>
         <tr>
           <th>标题</th>
-          <th>内容</th>
-          <th>模块</th>
+          <th>简介</th>
+          <th>栏目</th>
           <th>审核状态</th>
           <th colspan="3"></th>
         </tr>
@@ -69,7 +69,7 @@
               <td><%= article.keyword %></td>
               <td>
                 <% if article.via == 0 %>
-                    <input type="checkbox" name="check" checked id=<%= 'w' + article.id.to_s %>>
+                    <input type="checkbox" name="checked" checked id=<%= 'w' + article.id.to_s %> >
                 <% else %>
                     <input type="checkbox" id=<%= 'w' + article.id.to_s %>>
                 <% end %>
