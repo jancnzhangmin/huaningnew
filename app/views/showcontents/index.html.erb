@@ -46,8 +46,7 @@
             <!-- 关联到第一个tab, 默认激活 -->
             <a href="#xinwen" class="tab-link active button">新闻</a>
             <!-- 关联到第二个tab -->
-            <a href="#lanmu" class="tab-link button">栏目</a>
-            <!-- 关联到第三个tab -->
+
           </div>
           <div class="tabs">
             <div class="tab active" id="xinwen">
@@ -77,38 +76,6 @@
                 </ul>
               </div>
             </div>
-
-
-
-            <div class="tab" id="lanmu">
-              <div class="list-block media-list">
-                <ul>
-                  <% @lanmus.each do |f| %>
-                      <li>
-                        <a href=<%= showcontent_path(f) %> class="item-link item-content data-no-turbolink = true">
-                          <div class="item-media">
-                            <% if f.contentimedia_content_type !=nil %>
-                                <% if f.contentimedia_content_type.include?"image" %>
-                                    <%=image_tag f.contentimedia.url,width: '70px' %>
-                                <% else %>
-                                    <%=image_tag 'playerlogo.png',width: '70px' %>
-                                <% end %>
-                            <% end %>
-                          </div>
-                          <div class="item-inner">
-                            <div class="item-title-row">
-                              <div class="item-title"><%=f.title %></div>
-                            </div>
-                            <div class="item-text"><%=f.summary %></div>
-                          </div>
-                        </a>
-                      </li>
-                  <% end %>
-                </ul>
-              </div>
-            </div>
-          </div>
-
       <% else %>
 
 

@@ -1,4 +1,128 @@
 
+<script>
+$(document).ready(function() {
+
+    $('.i-checks').iCheck({
+        checkboxClass: 'icheckbox_square-green',
+        radioClass: 'iradio_square-green'
+    });
+
+
+    var ischeck;
+    var statuscheck
+    $('#smt').click(function() {
+        ischeck = "";
+        $('.mokuai:checked').each(function () {
+
+
+            ischeck += $(this).val() + ":";
+
+        });
+
+
+        if(ischeck!='')
+        {
+            ischeck=ischeck.substring(0,ischeck.length-1);
+        }
+
+        $('#authtype').val(ischeck);
+
+        statuscheck='';
+        $('.isstatus:checked').each(function(){
+
+
+           statuscheck+=$(this).val();
+
+        });
+        //alert(ischeck);
+        //return false;
+        $('#status').val(statuscheck);
+
+
+    });
+
+
+
+
+
+
+    var mycheck = $('#authtype').val().split(':');
+//alert(mycheck);
+
+    $.each(mycheck, function (i, n) {
+        if (n == 'express') {
+            $('#express').iCheck('check');
+        }
+        if (n == 'news') {
+            $('#news').iCheck('check');
+        }
+        if (n == 'zoujin') {
+            $('#zoujin').iCheck('check');
+        }
+        if (n == 'shipinhui') {
+            $('#shipinhui').iCheck('check');
+        }
+
+
+        if (n == 'zhengwu') {
+            $('#zhengwu').iCheck('check');
+        }
+
+        if (n == 'fabu') {
+            $('#fabu').iCheck('check');
+        }
+
+        if (n == 'bianmin') {
+            $('#bianmin1').iCheck('check');
+        }
+
+
+        if (n == 'dianbo') {
+            $('#dianbo').iCheck('check');
+        }
+        if (n == 'jiedao') {
+            $('#jiedao').iCheck('check');
+        }
+        if (n == 'liantong') {
+            $('#liantong').iCheck('check');
+        }
+
+        if (n == 'lvyou') {
+            $('#lvyou').iCheck('check');
+        }
+
+
+    });
+
+
+
+
+
+    var typecheck = $("#status").val().split(':');
+    $.each(typecheck,function(i,n){
+        if (n=='keyong') {
+            $('#keyong').iCheck('check');
+        }
+
+        if (n='jinyong'){
+            $('#jinyong').iCheck('check')
+        }
+
+
+    })
+
+    $('#keyong').on('ifChecked',function(event){
+        $('#jinyong').iCheck('uncheck');
+    });
+
+    $('#jinyong').on('ifChecked',function(event){
+        $('#keyong').iCheck('uncheck');
+    });
+
+});
+</script>
+
+
 <div class="ibox-content form-horizontal m-t">
 
 
@@ -34,12 +158,88 @@
         </div>
         </div>
 
+              <%= f.hidden_field :auth,id:'authtype' %>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">权限：</label>
+              <div class="col-sm-6">
+                <div class="col-sm-12">
+                  <table>
+                    <td>
+                      <div class="icheckbox i-checks">
+                        <label>
+                          <input type="checkbox" id="express" value="express" class="mokuai"> <i></i> 新闻速递</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="icheckbox i-checks">
+                        <label>
+                          <input type="checkbox" id="news" value="news" class="mokuai"> <i></i>华宁新闻</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="icheckbox i-checks">
+                        <label>
+                          <input type="checkbox" id="zoujin" value="zoujin" class="mokuai"> <i></i>走进华宁</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="icheckbox i-checks">
+                        <label>
+                          <input type="checkbox" id="shipinhui" value="shipinhui" class="mokuai"><i></i>视频汇</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="icheckbox i-checks">
+                        <label>
+                          <input type="checkbox" id="zhengwu" value="zhengwu" class="mokuai"><i></i>阳光政务</label>
+                      </div>
+                    </td>
 
+                    <td>
+                      <div class="icheckbox i-checks">
+                        <label>
+                          <input type="checkbox" id="fabu" value="fabu" class="mokuai"><i></i>轻快发布</label>
+                      </div>
+                    </td>
 
-        <div class="form-group">
-          <label class="col-sm-3 control-label">权限：</label>
-          <div class="col-sm-6">
-            <%= f.text_field :auth, class:"form-control" %>
+                    <td>
+                      <div class="icheckbox i-checks">
+                        <label>
+                          <input type="checkbox" id="bianmin" value="bianmin" class="mokuai"><i></i>便民服务</label>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="icheckbox i-checks">
+                        <label>
+                          <input type="checkbox" id="dianbo" value="dianbo" class="mokuai"><i></i>栏目点播</label>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="icheckbox i-checks">
+                        <label>
+                          <input type="checkbox" id="jiedao" value="jiedao" class="mokuai"><i></i>部门街道</label>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="icheckbox i-checks">
+                        <label>
+                          <input type="checkbox" id="liantong" value="liantong" class="mokuai"><i></i>联通</label>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="icheckbox i-checks">
+                        <label>
+                          <input type="checkbox" id="lvyou" value="lvyou" class="mokuai"><i></i>旅游方向标</label>
+                      </div>
+                    </td>
+
+                  </table>
+                </div>
+
           </div>
         </div>
 
@@ -47,21 +247,33 @@
 
 
 
+              <%= f.hidden_field :status,id:'status' %>
+              <div class="form-group">
+                <label class="col-sm-3 control-label">状态：</label>
+                <div class="col-sm-6">
+                  <div class="col-sm-12">
+                    <table>
+                      <td>
+                        <div class="icheckbox i-checks">
+                          <label>
+                            <input type="checkbox" id="keyong" value="1" class="isstatus"> <i></i>可用</label>
+                        </div>
+                      </td>
+
+                      <td>
+                        <div class="icheckbox i-checks">
+                          <label>
+                            <input type="checkbox" id="jinyong" value="0" class="isstatus"> <i></i>禁用</label>
+                        </div>
+                      </td>
+                      </table>
+                    </div>
+                  </div>
+                </div>
 
 
-
-
-
-
-
-        <div class="form-group">
-          <label class="col-sm-3 control-label">状态：</label>
-          <div class="col-sm-6">
-            <%= f.text_field :status,class:"form-control" %>
-          </div>
-        </div>
-        <div class="actions">
-          <%= f.submit'确定',class: "btn btn-w-m btn-success mylink pull-right",'data-no-turbolink'=>true %>
+                      <div class="actions">
+          <%= f.submit'确定',class: "btn btn-w-m btn-success mylink pull-right",id:'smt','data-no-turbolink'=>true%>
         </div>
     <% end %>
     </div>

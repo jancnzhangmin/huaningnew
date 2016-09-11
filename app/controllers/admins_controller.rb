@@ -19,6 +19,7 @@ class AdminsController < ApplicationController
 
   # GET /admins/1/edit
   def edit
+
   end
 
   # POST /admins

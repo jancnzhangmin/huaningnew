@@ -9,8 +9,8 @@
       <table class="table table-hover table-bordered">
         <thead>
         <tr>
+          <th></th>
           <th>姓名</th>
-          <th>密码</th>
           <th>电话</th>
           <th>状态</th>
           <th colspan="3"></th>
@@ -20,8 +20,8 @@
         <tbody>
         <% @users.each do |user| %>
             <tr>
+              <td><%= user.id %></td>
               <td><%= user.name %></td>
-              <td><%= user.password_digest %></td>
               <td><%= user.tel %></td>
               <td><%= user.vcode %></td>
               <td><%= link_to '编辑', edit_user_path(user) %></td>
@@ -30,7 +30,14 @@
         <% end %>
         </tbody>
       </table>
-          <br>
+
+      <div class="text-center">
+
+
+
+      </div>
+
+      <br>
           </div>
           </div>
           </div>

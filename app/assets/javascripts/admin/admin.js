@@ -30,5 +30,6 @@
 //= require admin/plugins/metisMenu/jquery.metisMenu.js
 //= require admin/plugins/slimscroll/jquery.slimscroll.min.js
 //= require admin/plugins/datapicker/bootstrap-datepicker.js
+//= require admin/plugins/iCheck/icheck.min.js
 //= require admin/plugins/echarts.min.js
 
