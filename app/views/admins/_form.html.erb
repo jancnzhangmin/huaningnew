@@ -91,6 +91,17 @@ $(document).ready(function() {
             $('#lvyou').iCheck('check');
         }
 
+        if (n == 'admin') {
+            $('#admin').iCheck('check');
+        }
+
+        if (n == 'censor') {
+            $('#censor').iCheck('check');
+        }
+
+        if (n == 'guanggao') {
+            $('#guanggao').iCheck('check');
+        }
 
     });
 
@@ -162,7 +173,7 @@ $(document).ready(function() {
             <div class="form-group">
               <label class="col-sm-3 control-label">权限：</label>
               <div class="col-sm-6">
-                <div class="col-sm-12">
+                <div class="col-sm-14">
                   <table>
                     <td>
                       <div class="icheckbox i-checks">
@@ -226,14 +237,39 @@ $(document).ready(function() {
                     <td>
                       <div class="icheckbox i-checks">
                         <label>
-                          <input type="checkbox" id="liantong" value="liantong" class="mokuai"><i></i>联通</label>
+                          <input type="checkbox" id="liantong" value="liantong" class="mokuai"><i></i>联通 </label>
+                      </div>
+                    </td>
+
+                  </table>
+
+                  <table>
+
+                    <td>
+                      <div class="icheckbox i-checks">
+                        <label>
+                          <input type="checkbox" id="lvyou" value="lvyou" class="mokuai"><i></i>旅游方向标</label>
                       </div>
                     </td>
 
                     <td>
                       <div class="icheckbox i-checks">
                         <label>
-                          <input type="checkbox" id="lvyou" value="lvyou" class="mokuai"><i></i>旅游方向标</label>
+                          <input type="checkbox" id="admin" value="admin" class="mokuai"><i></i>管理员</label>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="icheckbox i-checks">
+                        <label>
+                          <input type="checkbox" id="censor" value="censor" class="mokuai"><i></i>审核员</label>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="icheckbox i-checks">
+                        <label>
+                          <input type="checkbox" id="guanggao" value="guanggao" class="mokuai"><i></i>广告</label>
                       </div>
                     </td>
 

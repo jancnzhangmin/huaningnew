@@ -12,11 +12,19 @@
                              </span>
             <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
                                 <span class="clear"> <span class="block m-t-xs">
-                             </span>  <span class="text-muted text-xs block"><%= session[:name] %> <b class="caret"></b></span> </span>
+                             </span>  <span class="text-muted text-xs block">
+
+
+                                    <a href=<%= adminlogins_path %> class="button close-panel item-link data-no-turbolink" = true>登录</a>
+
+
+
+
+                                  <b class="caret"></b></span> </span>
             </a>
             <ul class="dropdown-menu animated fadeInRight m-t-xs">
 
-              <li><a href="profile.html">个人资料</a>
+              <li><a href="admins.html">个人资料</a>
               </li>
 
 
@@ -43,46 +51,57 @@
             <li>
               <% if session[:auth].to_s.include?'news' %>
               <%= link_to "新闻", contents_path(:keyword => 'news'),'data-no-turbolink' => true %>
+              <% end %>
             </li>
             <li>
               <% if session[:auth].to_s.include?'express' %>
               <%= link_to "新闻速递", contents_path(:keyword => 'express'),'data-no-turbolink' => true %>
+                  <% end %>
             </li>
             <li>
               <% if session[:auth].to_s.include?'zoujin' %>
               <%= link_to "走进华宁", contents_path(:keyword => 'zoujin'),'data-no-turbolink' => true %>
+              <% end %>
             </li>
             <li>
               <% if session[:auth].to_s.include?'shipinhui' %>
               <%= link_to "视频汇", contents_path(:keyword => 'shipinhui'),'data-no-turbolink' => true %>
+              <% end %>
             </li>
             <li>
               <% if session[:auth].to_s.include?'zhengwu' %>
               <%= link_to "阳光政务", contents_path(:keyword => 'zhengwu'),'data-no-turbolink' => true %>
+              <% end %>
             </li>
             <li>
               <% if session[:auth].to_s.include?'fabu' %>
               <%= link_to "轻快发布", contents_path(:keyword => 'fabu'),'data-no-turbolink' => true %>
+              <% end %>
             </li>
             <li>
               <% if session[:auth].to_s.include?'bianmin' %>
               <%= link_to "便民服务", contents_path(:keyword => 'bianmin'),'data-no-turbolink' => true %>
+              <% end %>
             </li>
             <li>
               <% if session[:auth].to_s.include?'lvyou' %>
               <%= link_to "旅游方向标", contents_path(:keyword => 'lvyou'),'data-no-turbolink' => true %>
+              <% end %>
             </li>
             <li>
               <% if session[:auth].to_s.include?'dianbo' %>
               <%= link_to "栏目点播", contents_path(:keyword => 'dianbo'),'data-no-turbolink' => true %>
+              <% end %>
             </li>
             <li>
               <% if session[:auth].to_s.include?'jiedao' %>
               <%= link_to "部门街道", contents_path(:keyword => 'jiedao'),'data-no-turbolink' => true %>
+              <% end %>
             </li>
             <li>
               <% if session[:auth].to_s.include?'liantong' %>
               <%= link_to "联通", contents_path(:keyword => 'liantong'),'data-no-turbolink' => true %>
+              <% end %>
             </li>
           </ul>
         </li>
@@ -91,7 +110,9 @@
           <a href="#"><i class="fa fa-user"></i><span class="nav-label">主页图片</span><span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
             <li>
+              <% if session[:auth].to_s.include?'admin' %>
               <%= link_to "主页图片", banners_path, 'data-no-turbolink'=> true %>
+              <% end %>
             </li>
           </ul>
         </li>
@@ -102,7 +123,9 @@
           <a href="#"><i class="fa fa-user"></i><span class="nav-label">管理员</span><span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
             <li>
+              <% if session[:auth].to_s.include?'admin' %>
               <%= link_to "管理员", admins_path, 'data-no-turbolink'=> true %>
+              <% end %>
             </li>
           </ul>
         </li>
@@ -112,10 +135,14 @@
           <a href="#"><i class="fa fa-user"></i><span class="nav-label">审核</span><span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
             <li>
+              <% if session[:auth].to_s.include?'censor' %>
               <%= link_to "评论审核", remarks_path, 'data-no-turbolink'=> true %>
+              <% end %>
             </li>
             <li>
+              <% if session[:auth].to_s.include?'censor' %>
               <%= link_to "文章审核", articles_path, 'data-no-turbolink'=> true %>
+              <% end %>
             </li>
           </ul>
         </li>
@@ -124,7 +151,9 @@
           <a href="#"><i class="fa fa-user"></i><span class="nav-label">广告</span><span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
             <li>
+              <% if session[:auth].to_s.include?'guanggao' %>
               <%= link_to "广告", adverts_path, 'data-no-turbolink'=> true %>
+              <% end %>
             </li>
           </ul>
         </li>
@@ -133,7 +162,9 @@
           <a href="#"><i class="fa fa-user"></i><span class="nav-label">访问统计</span><span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
             <li>
+              <% if session[:auth].to_s.include?'admin' %>
               <%= link_to "访问", pvs_path, 'data-no-turbolink'=> true %>
+              <% end %>
             </li>
           </ul>
         </li>
@@ -142,7 +173,9 @@
           <a href="#"><i class="fa fa-user"></i><span class="nav-label">用户管理</span><span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
             <li>
+              <% if session[:auth].to_s.include?'admin' %>
               <%= link_to "用户", users_path, 'data-no-turbolink'=> true %>
+              <% end %>
             </li>
           </ul>
         </li>
