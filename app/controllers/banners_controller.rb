@@ -1,4 +1,5 @@
 class BannersController < ApplicationController
+  before_action :check_login
  layout 'admin'
   before_action :set_banner, only: [:show, :edit, :update, :destroy]
 

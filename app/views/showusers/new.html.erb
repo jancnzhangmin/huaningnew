@@ -70,6 +70,12 @@
               </li>
 
 
+              <% if(params[:id)=="0" %>
+                  <div class="alert alert-danger">
+                    用户名或电话号码已占用！
+                  </div>
+              <% end %>
+
 
               <div class="content-block row">
                         <%= f.submit '确定',class:'button back',id:'smt' %>

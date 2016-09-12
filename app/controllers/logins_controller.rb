@@ -5,21 +5,23 @@ class LoginsController < ApplicationController
   end
 
   def getuser
-    if params[:login] && params[:password]
       user = User.find_by_tel(params[:login])
       if
-        user.vcode==0
         user && user.authenticate(params[:password])
         session[:userid] = user.id
         session[:username]=user.name
         session[:login]=user.login
-        render :json=>user
+        if
+        user.vcode==1
+          redirect_to users_path
       else
-        render :json=>nil
+        redirect_to action: 'index',id:1
       end
     else
-      render :json=>nil
+      redirect_to action: 'index',id:0
     end
   end
+
+
 
 end

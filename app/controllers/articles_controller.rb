@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
+  before_action :check_login
   layout 'admin'
-
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   # GET /articles

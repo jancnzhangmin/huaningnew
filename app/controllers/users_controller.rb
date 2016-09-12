@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :check_login
   layout 'admin'
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
@@ -31,8 +32,6 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
-
 
     respond_to do |format|
       if @user.save

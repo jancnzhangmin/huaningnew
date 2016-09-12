@@ -1,4 +1,5 @@
 class PvsController < ApplicationController
+  before_action :check_login
   layout 'admin'
   def index
     @pv = Visit.all

@@ -1,4 +1,5 @@
 class RemarksController < ApplicationController
+  before_action :check_login
   layout 'admin'
   before_action :set_remark, only: [:edit, :update, :destroy]
 

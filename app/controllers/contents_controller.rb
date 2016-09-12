@@ -1,5 +1,6 @@
 
 class ContentsController < ApplicationController
+  before_action :check_login
   layout 'admin'
   before_action :set_content, only: [:show, :edit, :update, :destroy]
 

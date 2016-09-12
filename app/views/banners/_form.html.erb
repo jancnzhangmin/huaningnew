@@ -4,20 +4,10 @@
         $('#smt').click(function() {
             check="";
             $('.isactive:checked').each(function(){
-
-
                 check+=$(this).val();
-
             });
-//alert(ischeck);
-//return false;
             $('#active').val(check);
-
-
         });
-
-
-
         $('.i-checks').iCheck({
             checkboxClass: 'icheckbox_square-green',
             radioClass: 'iradio_square-green'
@@ -29,11 +19,9 @@
                 $('#xianshi').iCheck('check');
             }
 
-            if (n='yincang'){
+            if (n=='yincang'){
                 $('#yincang').iCheck('check')
             }
-
-
         })
 
         $('#xianshi').on('ifChecked',function(event){

@@ -1,50 +1,40 @@
 <script>
-$(document).ready(function() {
-var check
-$('#smt').click(function() {
-check="";
-$('.isvcode:checked').each(function(){
 
+    $(document).ready(function() {
+        var check
+        $('#smt').click(function() {
+            check="";
+            $('.isvcode:checked').each(function(){
+                check+=$(this).val();
+            });
+            $('#vcode').val(check);
+        });
+        $('.i-checks').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-green'
+        });
 
-check+=$(this).val();
+        var typecheck = $("#vcode").val().split(':');
+        $.each(typecheck,function(i,n){
+            if (n=='keyong') {
+                $('#keyong').iCheck('check');
+            }
 
-});
-//alert(ischeck);
-//return false;
-$('#vcode').val(check);
+            if (n=='jinyong'){
+                $('#jinyong').iCheck('check')
+            }
+        })
 
+        $('#keyong').on('ifChecked',function(event){
+            $('#jinyong').iCheck('uncheck');
+        });
 
-});
+        $('#jinyong').on('ifChecked',function(event){
+            $('#keyong').iCheck('uncheck');
+        });
 
+    });
 
-
-$('.i-checks').iCheck({
-checkboxClass: 'icheckbox_square-green',
-radioClass: 'iradio_square-green'
-});
-
-var typecheck = $("#vcode").val.split(':');
-$.each(typecheck,function(i,n){
-if (n=='keyong') {
-$('#keyong').icheck('check');
-}
-
-if (n='jinyong'){
-$('#jinyong').icheck('check')
-}
-
-
-})
-
-$('#keyong').on('ifChecked',function(event){
-$('#jinyong').iCheck('uncheck');
-});
-
-$('#jinyong').on('ifChecked',function(event){
-$('#keyong').iCheck('uncheck');
-});
-
-});
 </script>
 
 
@@ -59,65 +49,64 @@ $('#keyong').iCheck('uncheck');
           <label class="col-sm-3 control-label">姓名：</label>
           <div class="col-sm-6">
             <%= f.text_field :name, class:"form-control" %>
-          </div>
-        </div>
+                </div>
+                </div>
 
-        <div class="form-group">
-          <label class="col-sm-3 control-label">密码：</label>
-          <div class="col-sm-6">
-            <%= f.text_field :password, class:"form-control" %>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-sm-3 control-label">密码：</label>
-          <div class="col-sm-6">
-            <%= f.text_field :password_confirmation, class:"form-control" %>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-sm-3 control-label">电话：</label>
-          <div class="col-sm-6">
-            <%= f.text_field :tel, class:"form-control" %>
-          </div>
-         </div>
-
-
-         <%= f.hidden_field :vcode ,id:"vcode"%>
-                    <div class="form-group">
-                      <label class="col-sm-3 control-label">状态：</label>
-                      <div class="col-sm-6">
-                        <div class="col-sm-12">
-                          <table>
-                            <td>
-                              <div class="icheckbox i-checks">
-                                <label>
-                                  <input type="checkbox" id="keyong" value="keyong" class="isvcode"> <i></i>可用</label>
-                              </div>
-                            </td>
-
-                            <td>
-                              <div class="icheckbox i-checks">
-                                <label>
-                                  <input type="checkbox" id="jinyong" value="jinyong" class="isvcode"> <i></i>禁用</label>
-                              </div>
-                            </td>
-                          </table>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">密码：</label>
+                  <div class="col-sm-6">
+                    <%= f.text_field :password, class:"form-control" %>
                         </div>
-                      </div>
-                    </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label class="col-sm-3 control-label">密码：</label>
+                          <div class="col-sm-6">
+                            <%= f.text_field :password_confirmation, class:"form-control" %>
+                                </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-3 control-label">电话：</label>
+                                  <div class="col-sm-6">
+                                    <%= f.text_field :tel, class:"form-control" %>
+                                        </div>
+                                        </div>
+
+
+                                        <%= f.hidden_field :vcode ,id:"vcode"%>
+                                        <div class="form-group">
+                                          <label class="col-sm-3 control-label">状态：</label>
+                                          <div class="col-sm-6">
+                                            <div class="col-sm-12">
+                                              <table>
+                                                <td>
+                                                  <div class="icheckbox i-checks">
+                                                    <label>
+                                                      <input type="checkbox" id="keyong" value="1" class="isvcode"> <i></i>可用</label>
+                                                  </div>
+                                                </td>
+
+                                                <td>
+                                                  <div class="icheckbox i-checks">
+                                                    <label>
+                                                      <input type="checkbox" id="jinyong" value="0" class="isvcode"> <i></i>禁用</label>
+                                                  </div>
+                                                </td>
+                                              </table>
+                                            </div>
+                                          </div>
+                                        </div>
 
 
 
 
 
-                    <div class="actions">
-                      <%= f.submit'确定',class: "btn btn-w-m btn-success mylink pull-right",id:'smt','data-no-turbolink'=>true%>
-                          </div>
-     <% end %>
+                                        <div class="actions">
+                                          <%= f.submit'确定',class: "btn btn-w-m btn-success mylink pull-right",id:'smt','data-no-turbolink'=>true%>
+                                          <% end %>
+                                        </div>
 
-  <%= link_to '返回', users_path %>
-  </div>
-</div>
-
+                                          <%= link_to '返回', users_path %>
+                                          </div>
+                                          </div>
