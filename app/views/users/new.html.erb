@@ -17,6 +17,7 @@
     <div class="page-content login-screen-content">
 
       <div class="list-block">
+        <p>号码也被注册</p>
 
         <%= form_for(@user,:html => {:class=>'list-block'}) do |f| %>
 
@@ -66,6 +67,8 @@
                   </div>
                 </div>
               </li>
+
+              <%= f.hidden_field :vcode,value:'1' %>
 
 
 

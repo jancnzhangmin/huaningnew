@@ -20,56 +20,57 @@
 
 
 
-          <ul>
+        <ul>
 
-            <li>
-              <div class="item-content">
-                <div class="item-media"><i class="fa fa-user"></i></div>
-                <div class="item-inner">
-                  <div class="item-title label">电话号码</div>
-                  <div class="item-input">
-                    <input type="tel" placeholder="电话号码" id="login">
-                  </div>
+          <li>
+            <div class="item-content">
+              <div class="item-media"><i class="fa fa-user"></i></div>
+              <div class="item-inner">
+                <div class="item-title label">电话号码</div>
+                <div class="item-input">
+                  <input type="tel" placeholder="电话号码" id="login">
                 </div>
               </div>
-            </li>
-
-            <li>
-              <div class="item-content">
-                <div class="item-media"><i class="fa fa-key"></i></div>
-                <div class="item-inner">
-                  <div class="item-title label">密码</div>
-                  <div class="item-input">
-                    <input type="password" placeholder="密码" id="password">
-                  </div>
-                </div>
-              </div>
-            </li>
-
-            <div class="content-block row">
-              <input type="button" value="确定" class="button" id="submit">
             </div>
+          </li>
 
-            <% if(params[:id])=="0" %>
-                <div class="alert alert-danger">
+          <li>
+            <div class="item-content">
+              <div class="item-media"><i class="fa fa-key"></i></div>
+              <div class="item-inner">
+                <div class="item-title label">密码</div>
+                <div class="item-input">
+                  <input type="password" placeholder="密码" id="password">
+                </div>
+              </div>
+            </div>
+          </li>
+
+
+
+          <% if(params[:id])=="0" %>
+              <div style="color:#B00100;text-align: center" class="alert alert-danger">
                   登陆名或密码错误！
-                </div>
-            <% end %>
-            <% if(params[:id])=="1" %>
-                <div class="alert alert-danger">
+              </div>
+          <% end %>
+          <% if(params[:id])=="1" %>
+              <div style="color: #B00100;text-align: center"class="alert alert-danger">
                   用户已停用！
-                </div>
-            <% end %>
+              </div>
+          <% end %>
+
+          <div class="content-block row">
+            <input type="button" value="确定" class="button" id="submit">
+          </div>
 
 
-
-          </ul>
+        </ul>
 
 
 
 
       </div>
-</div>
+    </div>
 
   </div>
 </div>
