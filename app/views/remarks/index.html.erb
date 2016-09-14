@@ -59,9 +59,9 @@ var myid = ischeck.substring(1);
         <% @remarks.each do |remark| %>
             <tr>
 
-              <td class="col-sm-7 control-label"><%= remark.summary %></td>
-              <td class="col-sm-1 control-label"><%= remark.user_id %></td>
-              <td class="col-sm-1 control-label"><%= remark.content_id %></td>
+              <td style="max-width :500px;overflow:hidden"><%= remark.summary %></td>
+              <td><%= remark.user_id %></td>
+              <td><%= remark.content_id %></td>
 
               <td class="col-sm-2 control-label">
                 

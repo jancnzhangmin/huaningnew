@@ -22,12 +22,12 @@
         <tbody>
         <% @admins.each do |adm| %>
             <tr>
-              <td class="col-sm-1 control-label"><%= adm.name %></td>
-              <td class="col-sm-1 control-label"><%= adm.login %></td>
-              <td class="col-sm-6 control-label"><%= adm.auth %></td>
-              <td class="col-sm-1 control-label"><%= adm.status %></td>
-              <td class="col-sm-1 control-label"><%= link_to '编辑', edit_admin_path(adm) %>&nbsp;&nbsp;
-              <td class="col-sm-1 control-label"><%= link_to '删除', adm, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td style="max-width :100px;overflow:hidden"><%= adm.name %></td>
+              <td style="max-width :100px;overflow:hidden"><%= adm.login %></td>
+              <td><%= adm.auth %></td>
+              <td><%= adm.status %></td>
+              <td><%= link_to '编辑', edit_admin_path(adm) %>&nbsp;&nbsp;
+              <td><%= link_to '删除', adm, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
         <% end %>
         </tbody>

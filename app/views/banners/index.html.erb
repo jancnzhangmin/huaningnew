@@ -19,12 +19,12 @@
   <tbody>
     <% @banners.each do |banner| %>
       <tr>
-        <td class="col-sm-1 control-label"><%= banner.title %></td>
-        <td class="col-sm-1 control-label"><%= banner.link %></td>
-        <td class="col-sm-1 control-label"><%= banner.active %></td>
-        <td  class="col-sm-7 control-label"><%= image_tag banner.banner.url %></td>
-        <td class="col-sm-1 control-label"><%= link_to '编辑', edit_banner_path(banner) %></td>
-        <td class="col-sm-1 control-label"><%= link_to '删除', banner, method: :delete, data: { confirm: '确定删除?' } %></td>
+        <td style="max-width :100px;overflow:hidden"><%= banner.title %></td>
+        <td style="max-width :100px;overflow:hidden"><%= banner.link %></td>
+        <td><%= banner.active %></td>
+        <td style="max-width :600px;overflow:hidden"><%= image_tag banner.banner.url style="width:600px" %></td>
+        <td><%= link_to '编辑', edit_banner_path(banner) %></td>
+        <td><%= link_to '删除', banner, method: :delete, data: { confirm: '确定删除?' } %></td>
       </tr>
     <% end %>
   </tbody>

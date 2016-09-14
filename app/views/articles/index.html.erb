@@ -64,10 +64,10 @@
         <tbody>
         <% @articles.each do |article| %>
             <tr>
-              <td class="col-sm-3 control-label"><%= article.title %></td>
-              <td class="col-sm-5 control-label"><%= article.summary %></td>
-              <td class="col-sm-1 control-label"><%= article.keyword %></td>
-              <td class="col-sm-2 control-label">
+              <td style="max-width :100px;overflow:hidden"><%= article.title %></td>
+              <td style="max-width :500px;overflow:hidden"><%= article.summary %></td>
+              <td><%= article.keyword %></td>
+              <td>
                 <% if article.via == 0 %>
                     <input type="checkbox" name="checked" checked id=<%= 'w' + article.id.to_s %> >
                 <% else %>
