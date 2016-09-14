@@ -64,10 +64,10 @@
         <tbody>
         <% @articles.each do |article| %>
             <tr>
-              <td><%= article.title %></td>
-              <td><%= article.summary %></td>
-              <td><%= article.keyword %></td>
-              <td>
+              <td class="col-sm-3 control-label"><%= article.title %></td>
+              <td class="col-sm-5 control-label"><%= article.summary %></td>
+              <td class="col-sm-1 control-label"><%= article.keyword %></td>
+              <td class="col-sm-2 control-label">
                 <% if article.via == 0 %>
                     <input type="checkbox" name="checked" checked id=<%= 'w' + article.id.to_s %> >
                 <% else %>
@@ -89,7 +89,7 @@
 
               </td>
 
-              <td><%= link_to '删除', article_path(article), method: :delete, data: { confirm: '确定删除?' } %></td>
+              <td class="col-sm-1 control-label"><%= link_to '删除', article_path(article), method: :delete, data: { confirm: '确定删除?' } %></td>
 
             </tr>
         <% end %>

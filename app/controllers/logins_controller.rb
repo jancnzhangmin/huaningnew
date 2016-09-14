@@ -7,7 +7,7 @@ class LoginsController < ApplicationController
 
 
   def getuser
-    if params[:login] && params[:password]
+    params[:login] && params[:password]
       user = User.find_by_login(params[:login])
       if user && user.authenticate(params[:password])
         session[:userid] = user.id
@@ -23,8 +23,6 @@ class LoginsController < ApplicationController
       else
         redirect_to action: 'index',id:0
       end
-
-    end
   end
 
 

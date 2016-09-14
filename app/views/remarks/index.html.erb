@@ -59,11 +59,11 @@ var myid = ischeck.substring(1);
         <% @remarks.each do |remark| %>
             <tr>
 
-              <td><%= remark.summary %></td>
-              <td><%= remark.user_id %></td>
-              <td><%= remark.content_id %></td>
+              <td class="col-sm-7 control-label"><%= remark.summary %></td>
+              <td class="col-sm-1 control-label"><%= remark.user_id %></td>
+              <td class="col-sm-1 control-label"><%= remark.content_id %></td>
 
-              <td>
+              <td class="col-sm-2 control-label">
                 
                 <% if remark.isshow == 0 %>
                     <input type="checkbox" name="check" checked id=<%= 'w' + remark.id.to_s %>>

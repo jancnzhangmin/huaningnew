@@ -21,11 +21,11 @@
         <% @users.each do |user| %>
             <tr>
               <td><%= user.id %></td>
-              <td><%= user.name %></td>
-              <td><%= user.tel %></td>
-              <td><%= user.vcode %></td>
-              <td><%= link_to '编辑', edit_user_path(user) %></td>
-              <td><%= link_to '删除', user, method: :delete, data: { confirm: '确定删除吗?' } %></td>
+              <td class="col-sm-3 control-label"><%= user.name %></td>
+              <td class="col-sm-5 control-label"><%= user.tel %></td>
+              <td class="col-sm-1 control-label"><%= user.vcode %></td>
+              <td class="col-sm-1 control-label"><%= link_to '编辑', edit_user_path(user) %></td>
+              <td class="col-sm-1 control-label"><%= link_to '删除', user, method: :delete, data: { confirm: '确定删除吗?' } %></td>
             </tr>
         <% end %>
         </tbody>

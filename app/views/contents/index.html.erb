@@ -20,11 +20,11 @@
   <% if @contents %>
       <% @contents.each do |content| %>
           <tr>
-            <td><%= content.title %></td>
-            <td><%= content.summary %></td>
-            <td><%= content.visit %></td>
-            <td><%= link_to '编辑', edit_content_path(content,:keyword=>@keyword),'data-no-turbolink'=>true %></td>
-            <td><%= link_to '删除', content, method: :delete, data: { confirm: '您确定要删除吗?' } %></td>
+            <td class="col-sm-4 control-label"><%= content.title %></td>
+            <td class="col-sm-5 control-label"><%= content.summary %></td>
+            <td class="col-sm-1 control-label"><%= content.visit %></td>
+            <td class="col-sm-1 control-label"><%= link_to '编辑', edit_content_path(content,:keyword=>@keyword),'data-no-turbolink'=>true %></td>
+            <td class="col-sm-1 control-label"><%= link_to '删除', content, method: :delete, data: { confirm: '您确定要删除吗?' } %></td>
           </tr>
       <% end %>
   <% end %>
