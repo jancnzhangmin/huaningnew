@@ -17,8 +17,8 @@ class AdminloginsController < ApplicationController
     if
 
       admin && admin.authenticate(params[:login][:password])
-      session[:userid]=admin.id
-      session[:username]=admin.name
+      session[:adminid]=admin.id
+      session[:adminname]=admin.name
       session[:auth]=admin.auth
       session[:login]=admin.login
 

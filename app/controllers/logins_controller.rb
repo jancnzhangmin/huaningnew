@@ -13,7 +13,7 @@ class LoginsController < ApplicationController
         session[:userid] = user.id
         session[:username]=user.name
         session[:login]=user.login
-         user.vcode==1
+        user.vcode==1
          render json: user
       else
        render json: nil

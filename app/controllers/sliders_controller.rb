@@ -1,6 +1,7 @@
 class SlidersController < ApplicationController
   def index
-    @indexcontents = Content.where(isnew: '0').order('updated_at desc').limit(10)
+    @indexcontents = Content.where("isnew = '0' AND via = '2' ").order('updated_at desc').limit(10)
+
     @banners = Banner.all
     @adverts = Advert.all
     visit = Visit.last
@@ -37,7 +38,7 @@ class SlidersController < ApplicationController
     end
 
     if  @idindex.to_i > 0
-      @contents = Content.where(" id < '" + @idindex + "'  AND isnew = '0'" ).order('updated_at desc').limit(10)
+      @contents = Content.where(" id < '" + @idindex + "'  AND isnew = '0' AND via = '2' " ).order('updated_at desc').limit(10)
     end
 
 
