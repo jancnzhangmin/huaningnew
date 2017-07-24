@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
 
   def check_login
-    if session[:userid]=='' || session[:userid]==nil
+    if session[:adminid]=='' || session[:adminid]==nil
       redirect_to adminlogins_path
     end
   end
