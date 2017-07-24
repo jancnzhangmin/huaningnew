@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(version: 20160908055142) do
     t.integer  "isshow",     limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.integer  "via",        limit: 4
   end
 
   create_table "contents", force: :cascade do |t|
@@ -85,6 +84,11 @@ ActiveRecord::Schema.define(version: 20160908055142) do
     t.integer  "contentimedia_file_size",    limit: 4
     t.datetime "contentimedia_updated_at"
     t.integer  "via",                        limit: 4
+  end
+
+  create_table "remarks", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
