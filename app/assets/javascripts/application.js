@@ -19,3 +19,4 @@
 //= require my-app.js
 //= require jquery.jplayer.min.js
 
+

@@ -32,4 +32,5 @@
 //= require admin/plugins/datapicker/bootstrap-datepicker.js
 //= require admin/plugins/iCheck/icheck.min.js
 //= require admin/plugins/echarts.min.js
+//= require admin/load_kindeditor
 

@@ -3,7 +3,11 @@ class AdminloginsController < ApplicationController
 
 
   def index
+admin = Admin.all
+    if admin.count == 0
 
+      Admin.create(name:'管理员',login:'admin',password:'admin',password_confirmation:'admin',auth:'admin',status:1)
+    end
   end
 
 
@@ -11,11 +15,10 @@ class AdminloginsController < ApplicationController
   def create
 
 
-    admin = Admin.find_by(name:params[:login][:name])
+    admin = Admin.find_by(login:params[:login][:login])
 
 
     if
-
       admin && admin.authenticate(params[:login][:password])
       session[:adminid]=admin.id
       session[:adminname]=admin.name

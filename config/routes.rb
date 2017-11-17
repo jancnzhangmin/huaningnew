@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :admins
   resources :remarks do
     collection do
-    get 'change'
+      get 'change'
     end
   end
   resources :comments
@@ -41,7 +41,7 @@ Rails.application.routes.draw do
     collection do
       get 'search'
       get 'jsonindex'
-      end
+    end
   end
   resources :showusers
   resources :logins do
@@ -59,6 +59,12 @@ Rails.application.routes.draw do
     collection do
       get 'jsonindex'
       get 'search'
+    end
+  end
+  resources :apis do
+    collection do
+      get 'getcontentlist'
+      get 'getcontent'
     end
   end
 
